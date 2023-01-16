@@ -1,4 +1,8 @@
+//Local cambiar a http
 const SERVER_IP = "localhost:3977";
+
+//Para PRD cambiar a https
+//const SERVER_IP = "ofg-app1.herokuapp.com";
 
 export const ENV = {
   BASE_PATH: `http://${SERVER_IP}`,
@@ -10,7 +14,14 @@ export const ENV = {
     USER_ME: "user/me",
     USER: "user",
     USERS: "users",
+    MENU: "menu",
+    COURSE: "course",
+    NEWSLETTER: "newsletter",
     POST: "post",
+  },
+  API_TAC_ROUTES: {
+    QUESTION: "question",
+    QUESTIONS: "questions",
   },
   JWT: {
     ACCESS: "access",

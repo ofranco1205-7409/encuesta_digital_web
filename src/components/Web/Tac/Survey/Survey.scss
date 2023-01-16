@@ -1,0 +1,13 @@
+@import "~/src/scss/index.scss";
+
+.tac-form {
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    min-width: fit-content;
+  }
+}

@@ -89,7 +89,7 @@ export class User {
       if (data.fileAvatar) {
         formData.append("avatar", data.fileAvatar);
       }
-      console.log(formData);
+
       const url = `${ENV.BASE_API}/${ENV.API_ROUTES.USER}/${idUser}`;
       const params = {
         method: "PATCH",
