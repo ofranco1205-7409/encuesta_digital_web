@@ -5,3 +5,4 @@ export * from "./course";
 export * from "./newsletter";
 export * from "./blog";
 export * from "./tac";
+export * from "./folio";

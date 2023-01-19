@@ -3,18 +3,21 @@ import { size, map } from "lodash";
 import { Tac } from "../../../api";
 import { Loader, Step, Container } from "semantic-ui-react";
 import { Survey } from "../../../components/Web/Tac/Survey";
+import { useFolio } from "../../../hooks";
 import { Test } from ".";
 import "./EncuestaTac.scss";
 
 const tacController = new Tac();
 
 export function EncuestaTac() {
-  //const { folio } = useAuth();
+  const { folio } = useFolio();
+
+  console.log("EncuestaTac folio", folio);
 
   const [qData, setqData] = useState(null);
 
   const [criteria, setCriteria] = useState({
-    folio: 1,
+    folio: folio._id,
     sID: 1,
     qIndex: 0,
     sComplete: [true, false, false, false],

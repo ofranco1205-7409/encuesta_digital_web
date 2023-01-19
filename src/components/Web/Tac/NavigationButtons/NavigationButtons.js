@@ -1,12 +1,12 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
+import { Form, Progress } from "semantic-ui-react";
 import "./NavigationButtons.scss";
 
 export function NavigationButtons(props) {
   const { setButton, formik } = props;
 
   return (
-    <div className="tac-form__buttons">
+    <div className="navigation-buttons">
       <Form.Button
         type="submit"
         value="1"
@@ -31,6 +31,11 @@ export function NavigationButtons(props) {
       >
         Siguiente
       </Form.Button>
+      <div className="navigation-buttons__progress-bar">
+        <Progress value="1" total="8" size="tiny" color="grey">
+          1/8
+        </Progress>
+      </div>
     </div>
   );
 }

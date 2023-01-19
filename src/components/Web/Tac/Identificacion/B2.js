@@ -71,7 +71,7 @@ export function B2(props) {
   return (
     <div className="tac-form">
       <Form onSubmit={formik.handleSubmit}>
-        <h2>B.2. Tamaño de la empresa en número de empleados </h2>
+        <h3>B.2. Tamaño de la empresa en número de empleados </h3>
         <Form.Group grouped>
           <Form.Field
             label="MiPYMEc(< 10 empleados)"

@@ -22,9 +22,13 @@ export const ENV = {
   API_TAC_ROUTES: {
     QUESTION: "question",
     QUESTIONS: "questions",
+    FOLIO: "folio",
+    F_ENCODE: "folio/encode",
+    F_DECODE: "folio/decode",
   },
   JWT: {
     ACCESS: "access",
     REFRESH: "refresh",
+    F_TOKEN: "fToken",
   },
 };

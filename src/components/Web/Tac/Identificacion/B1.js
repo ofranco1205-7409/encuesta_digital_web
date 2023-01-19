@@ -87,10 +87,10 @@ export function B1(props) {
   return (
     <div className="tac-form">
       <Form onSubmit={formik.handleSubmit}>
-        <h2>
-          B.1. ¿Con cuáles de las siguientes definiciones se identifica su
+        <h3>
+          1.- ¿Con cuáles de las siguientes definiciones se identifica su
           actividad principal?
-        </h2>
+        </h3>
         <Accordion>
           <Accordion.Title
             active={activeIndex === 0}
