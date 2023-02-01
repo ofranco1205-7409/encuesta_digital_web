@@ -13,7 +13,7 @@ const reorder = (list, startIndex, endIndex) => {
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
-  return result;
+  return map(result, (reto, i) => ({ ...reto, order: i + 1 }));
 };
 
 const getItemStyle = (isDragging, draggableStyle) => ({
@@ -42,6 +42,8 @@ export function ListReto(props) {
         console.log("response", response);
         if (response[0]) {
           setRetos(response[0].qRes);
+        } else {
+          setRetos([]);
         }
       } catch (error) {
         console.error(error);
@@ -50,11 +52,16 @@ export function ListReto(props) {
   }, [reload]);
 
   if (!retos) return <Loader active inline="centered" />;
-  if (size(retos) === 0) return <h4>[No se ha capturado ningun reto...]</h4>;
+  if (size(retos) === 0)
+    return (
+      <div className="a2__retos__no-data">
+        <h5>[No se ha capturado ningun reto...]</h5>
+      </div>
+    );
 
   return (
     <>
-      <div className="a1">
+      <div className="a2">
         <DragDropContext
           onDragEnd={(result) => {
             const { source, destination } = result;
@@ -73,13 +80,13 @@ export function ListReto(props) {
             );
           }}
         >
-          <div className="a1__retos">
+          <div className="a2__retos">
             <Droppable droppableId="tasks">
               {(droppableProvided) => (
                 <ul
                   {...droppableProvided.droppableProps}
                   ref={droppableProvided.innerRef}
-                  className="a1__retos__task-container"
+                  className="a2__retos__task-container"
                 >
                   {retos.map((reto, index) => (
                     <Draggable
@@ -92,7 +99,7 @@ export function ListReto(props) {
                           {...draggableProvided.draggableProps}
                           ref={draggableProvided.innerRef}
                           {...draggableProvided.dragHandleProps}
-                          className="a1__retos__task-container__task-item"
+                          className="a2__retos__task-container__task-item"
                           style={getItemStyle(
                             snapshot.isDragging,
                             draggableProvided.draggableProps.style

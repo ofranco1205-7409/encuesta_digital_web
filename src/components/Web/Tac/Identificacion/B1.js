@@ -11,27 +11,10 @@ const tn = new TacNavigation();
 
 export function B1(props) {
   const { criteria, setCriteria, qData } = props;
-  //const { sID, qIndex } = criteria;
 
   const [button, setButton] = useState(null);
 
   console.log(qData);
-
-  /*
-  const next = (i) => {
-    if (i > criteria.survey[sID].questions.length - 1) {
-      i = criteria.survey[sID].questions.length - 1;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-  };
-
-  const previous = (i) => {
-    if (i < 0) {
-      i = 0;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-  };
-*/
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -56,19 +39,6 @@ export function B1(props) {
         }
 
         tn.updateQuestion(button, setCriteria);
-        /*
-        if (button === "anterior") {
-          setCriteria((prev) => ({
-            ...prev,
-            ...tn.previous({ sID, qIndex }),
-          }));
-        } else if (button === "siguiente") {
-          setCriteria((prev) => ({
-            ...prev,
-            ...tn.next({ sID, qIndex }),
-          }));
-        }
-        */
       } catch (error) {
         console.error(error);
       }
@@ -216,7 +186,11 @@ export function B1(props) {
           </Accordion.Content>
         </Accordion>
 
-        <NavigationButtons setButton={setButton} formik={formik} />
+        <NavigationButtons
+          setButton={setButton}
+          formik={formik}
+          progress={tn.getProgress(criteria)}
+        />
       </Form>
     </div>
   );

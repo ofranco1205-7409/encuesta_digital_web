@@ -22,38 +22,11 @@ export function A2(props) {
   const onReload = () => setReload((prevStata) => !prevStata);
 
   const { criteria, setCriteria, qData } = props;
-
   const { folio, sID } = criteria;
-
   const [button, setButton] = useState(null);
 
   console.log("qData", qData);
 
-  /*
-  const next = (i) => {
-    if (i > criteria.survey[sID].questions.length - 1) {
-      i = criteria.survey[sID].questions.length - 1;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-
-  const previous = (i) => {
-    if (i < 0) {
-      i = 0;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-*/
-  /*
-    const handler = () => {
-    console.warn("En handler");
-    tn.updateQuestion(button, setCriteria);
-  };
-*/
   const formik = useFormik({
     initialValues: initialValues(retos),
     validationSchema: validationSchema(),
@@ -77,13 +50,14 @@ export function A2(props) {
 
         tn.updateQuestion(button, setCriteria);
 
+        /*
         if (button === "anterior") {
           console.log("Button 1 clicked!");
           //previous(criteria.qIndex - 1);
         } else if (button === "siguiente") {
           console.log("Button 2 clicked!");
           //next(criteria.qIndex + 1);
-        }
+        }*/
       } catch (error) {
         console.error(error);
       }
@@ -100,7 +74,7 @@ export function A2(props) {
         </h2>
         <div className="a2__retos">
           <Button className="a2__retos__add" primary onClick={onOpenCloseModal}>
-            Agregar
+            Agregar reto
           </Button>
         </div>
         <ListReto
@@ -112,7 +86,11 @@ export function A2(props) {
         />
         <p />
         <Form onSubmit={formik.handleSubmit}>
-          <NavigationButtons setButton={setButton} formik={formik} />
+          <NavigationButtons
+            setButton={setButton}
+            formik={formik}
+            progress={tn.getProgress(criteria)}
+          />
         </Form>
       </div>
 

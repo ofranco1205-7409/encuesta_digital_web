@@ -1,11 +1,16 @@
 @import "~/src/scss/index.scss";
 
-.a1 {
+.a2 {
   //background-color: bisque;
 
-  &__add {
-  }
   &__retos {
+    &__no-data {
+      //background-color: aquamarine !important;
+      //width: 87%;
+      //border: 1px dotted pink;
+      border: 1px dashed gray;
+      padding: 5px;
+    }
     ul {
       padding-inline-start: 0px !important;
     }
@@ -44,9 +49,10 @@
         background-color: #4a9af5;
       }
     }
-    > h2 {
+    > h4 {
       //width: 87%;
       //border: 1px dotted pink;
+      //border: 1px dashed gray;
     }
   }
 }

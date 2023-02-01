@@ -154,4 +154,14 @@ export class TacNavigation {
       });
     }
   }
+
+  getProgress(criteria) {
+    let { sID, qIndex } = criteria;
+
+    const progress = {
+      value: qIndex + 1,
+      total: this.survey[sID].questions.length,
+    };
+    return progress;
+  }
 }

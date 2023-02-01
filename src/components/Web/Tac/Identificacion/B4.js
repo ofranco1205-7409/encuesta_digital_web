@@ -128,7 +128,11 @@ export function B4(props) {
             error={formik.errors.qRes}
           />
         </Form.Group>
-        <NavigationButtons setButton={setButton} formik={formik} />
+        <NavigationButtons
+          setButton={setButton}
+          formik={formik}
+          progress={tn.getProgress(criteria)}
+        />
       </Form>
     </div>
   );

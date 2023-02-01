@@ -3,7 +3,7 @@ import { Form, Progress } from "semantic-ui-react";
 import "./NavigationButtons.scss";
 
 export function NavigationButtons(props) {
-  const { setButton, formik, noSubmit } = props;
+  const { setButton, formik, progress } = props;
 
   /*
   const onClickHandler = (navigation, handler) => {
@@ -46,8 +46,8 @@ export function NavigationButtons(props) {
 
       <div className="navigation-buttons__progress-bar">
         <Progress
-          value="7"
-          total="8"
+          value={progress ? progress.value : 0}
+          total={progress ? progress.total : 0}
           progress="ratio"
           size="medium"
           color="grey"

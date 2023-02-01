@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { size, map } from "lodash";
+import { size } from "lodash";
 import { Tac } from "../../../api";
-import { Loader, Step, Container, Grid, Image } from "semantic-ui-react";
+import { Loader, Step, Container } from "semantic-ui-react";
 import { Survey } from "../../../components/Web/Tac/Survey";
 import { useFolio } from "../../../hooks";
 import { TacNavigation } from "../../../components/Web/Tac/TacNavigation";
-import { Test } from ".";
 import "./EncuestaTac.scss";
 
 const tacController = new Tac();
@@ -16,8 +15,8 @@ export function EncuestaTac() {
 
   const [qData, setqData] = useState(null);
 
-  const sID_inicial = 2;
-  const qIndex_inicial = 3;
+  const sID_inicial = 0;
+  const qIndex_inicial = 0;
   const qID_inicial = tn.qID({ sID: sID_inicial, qIndex: qIndex_inicial });
   const [criteria, setCriteria] = useState({
     folio: folio._id,

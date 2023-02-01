@@ -313,7 +313,11 @@ export function C1_4(props) {
           </Form.Field>
         </Form.Group>
 
-        <NavigationButtons setButton={setButton} formik={formik} />
+        <NavigationButtons
+          setButton={setButton}
+          formik={formik}
+          progress={tn.getProgress(criteria)}
+        />
       </Form>
     </div>
   );

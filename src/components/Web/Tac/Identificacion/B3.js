@@ -128,7 +128,11 @@ export function B3(props) {
           />
         </Form.Group>
 
-        <NavigationButtons setButton={setButton} formik={formik} />
+        <NavigationButtons
+          setButton={setButton}
+          formik={formik}
+          progress={tn.getProgress(criteria)}
+        />
       </Form>
     </div>
   );
