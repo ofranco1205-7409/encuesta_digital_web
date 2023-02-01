@@ -4,27 +4,25 @@ import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B1.form";
 import { NavigationButtons } from "../NavigationButtons";
+import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
 
 const tacController = new Tac();
+const tn = new TacNavigation();
 
 export function B1(props) {
   const { criteria, setCriteria, qData } = props;
-
-  const { sID } = criteria;
+  //const { sID, qIndex } = criteria;
 
   const [button, setButton] = useState(null);
 
   console.log(qData);
 
-  console.log(criteria.survey[sID].questions);
-
+  /*
   const next = (i) => {
     if (i > criteria.survey[sID].questions.length - 1) {
       i = criteria.survey[sID].questions.length - 1;
     }
     setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
   };
 
   const previous = (i) => {
@@ -32,9 +30,8 @@ export function B1(props) {
       i = 0;
     }
     setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
   };
+*/
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -58,13 +55,20 @@ export function B1(props) {
           await tacController.createQuestion(newData);
         }
 
-        if (button === 1) {
-          console.log("Button 1 clicked!");
-          previous(criteria.qIndex - 1);
-        } else if (button === 2) {
-          console.log("Button 2 clicked!");
-          next(criteria.qIndex + 1);
+        tn.updateQuestion(button, setCriteria);
+        /*
+        if (button === "anterior") {
+          setCriteria((prev) => ({
+            ...prev,
+            ...tn.previous({ sID, qIndex }),
+          }));
+        } else if (button === "siguiente") {
+          setCriteria((prev) => ({
+            ...prev,
+            ...tn.next({ sID, qIndex }),
+          }));
         }
+        */
       } catch (error) {
         console.error(error);
       }

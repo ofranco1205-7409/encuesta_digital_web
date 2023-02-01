@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { AdminLayout } from "../layouts";
+import { AdminLayout, ClientLayout } from "../layouts";
 import { Auth, Users, Blog, Courses, Menu, Newsletter } from "../pages/admin";
 import { useAuth } from "../hooks";
+import { EncuestaTac } from "../pages/web";
 
 export function AdminRouter() {
   const { user } = useAuth();

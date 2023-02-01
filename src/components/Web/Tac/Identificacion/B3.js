@@ -4,8 +4,10 @@ import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B3.form";
 import { NavigationButtons } from "../NavigationButtons";
+import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
 
 const tacController = new Tac();
+const tn = new TacNavigation();
 
 export function B3(props) {
   const { criteria, setCriteria, qData } = props;
@@ -16,8 +18,7 @@ export function B3(props) {
 
   console.log(qData);
 
-  console.log(criteria.survey[sID].questions);
-
+  /*
   const next = (i) => {
     if (i > criteria.survey[sID].questions.length - 1) {
       i = criteria.survey[sID].questions.length - 1;
@@ -35,6 +36,7 @@ export function B3(props) {
     console.log(i);
     console.log(criteria.qIndex);
   };
+*/
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -58,6 +60,8 @@ export function B3(props) {
           await tacController.createQuestion(newData);
         }
 
+        tn.updateQuestion(button, setCriteria);
+        /*
         if (button === 1) {
           console.log("Button 1 clicked!");
           previous(criteria.qIndex - 1);
@@ -65,6 +69,7 @@ export function B3(props) {
           console.log("Button 2 clicked!");
           next(criteria.qIndex + 1);
         }
+        */
       } catch (error) {
         console.error(error);
       }

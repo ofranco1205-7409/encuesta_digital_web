@@ -1,7 +1,9 @@
 import React from "react";
 import { Progress, Segment, Icon, Message } from "semantic-ui-react";
-import { A1 } from "../Introduccion";
-import { B1, B2, B3, B4 } from "../Identificacion";
+import { Introduccion } from "../Introduccion";
+import { Identificacion } from "../Identificacion";
+import { Operador } from "../Operador";
+import { Usuario } from "../Usuario";
 import "./Survey.scss";
 
 export function Survey(props) {
@@ -12,11 +14,7 @@ export function Survey(props) {
       <Segment className="survey__progress" color="blue" tertiary>
         <div className="survey__progress__title">
           <Icon name="payment" size="huge" />
-          <h1>
-            <spam className="survey__progress__title__blue">
-              &nbsp;Identificación&nbsp;
-            </spam>
-          </h1>
+          <h1>&nbsp;Identificación&nbsp;</h1>
         </div>
         <Progress value="1" total="8" size="tiny" color="grey">
           1/8
@@ -31,14 +29,32 @@ export function Survey(props) {
       </Segment>
 
       <Segment className="survey__form">
-        {criteria.qIndex === 0 ? (
-          <B1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
-        ) : criteria.qIndex === 1 ? (
-          <B2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
-        ) : criteria.qIndex === 2 ? (
-          <B3 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        {criteria.sID === 0 ? (
+          <Introduccion
+            criteria={criteria}
+            setCriteria={setCriteria}
+            qData={qData}
+          />
+        ) : criteria.sID === 1 ? (
+          <Identificacion
+            criteria={criteria}
+            setCriteria={setCriteria}
+            qData={qData}
+          />
+        ) : criteria.sID === 2 ? (
+          <Operador
+            criteria={criteria}
+            setCriteria={setCriteria}
+            qData={qData}
+          />
+        ) : criteria.sID === 3 ? (
+          <Usuario
+            criteria={criteria}
+            setCriteria={setCriteria}
+            qData={qData}
+          />
         ) : (
-          <B4 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+          <h2>Otro</h2>
         )}
       </Segment>
     </div>

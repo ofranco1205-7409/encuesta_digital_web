@@ -4,26 +4,25 @@ import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B2.form";
 import { NavigationButtons } from "../NavigationButtons";
+import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
 
 const tacController = new Tac();
+const tn = new TacNavigation();
 
 export function B2(props) {
   const { criteria, setCriteria, qData } = props;
-
-  const { folio, sID, qID } = criteria;
+  const { folio, sID } = criteria;
 
   const [button, setButton] = useState(null);
 
-  console.log(qData);
-  console.log(criteria.survey[sID].questions);
+  console.log("qData", qData);
 
+  /*
   const next = (i) => {
     if (i > criteria.survey[sID].questions.length - 1) {
       i = criteria.survey[sID].questions.length - 1;
     }
     setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
   };
 
   const previous = (i) => {
@@ -31,9 +30,8 @@ export function B2(props) {
       i = 0;
     }
     setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
   };
+*/
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -54,14 +52,15 @@ export function B2(props) {
           console.log("Insert question");
           await tacController.createQuestion(newData);
         }
-
-        if (button === 1) {
+        tn.updateQuestion(button, setCriteria);
+        /*
+        if (button === "anterior") {
           console.log("Button 1 clicked!");
-          previous(criteria.qIndex - 1);
-        } else if (button === 2) {
+          criteria.previous(criteria.qIndex - 1);
+        } else if (button === "siguiente") {
           console.log("Button 2 clicked!");
-          next(criteria.qIndex + 1);
-        }
+          criteria.next(criteria.qIndex + 1);
+        }*/
       } catch (error) {
         console.error(error);
       }
@@ -79,11 +78,6 @@ export function B2(props) {
             type="radio"
             name="qRes"
             //id="qRes1
-            /*
-            onChange={(_, data) => {
-              console.log(data.value);
-              formik.setFieldValue("Res1", data.value);
-            }}*/
             onChange={formik.handleChange}
             value="A"
             checked={formik.values.qRes === "A"}
@@ -123,6 +117,7 @@ export function B2(props) {
             error={formik.errors.qRes}
           />
         </Form.Group>
+
         <NavigationButtons setButton={setButton} formik={formik} />
       </Form>
     </div>

@@ -15,36 +15,41 @@ export function FolioProvider(props) {
     (async () => {
       const fToken = folioController.getFolioStorage();
 
-      console.log("loading", loading);
-      console.log("Tocken en storage", fToken);
+      console.log("ftoken", fToken);
 
       if (!fToken) {
         limpiaFolioStorage();
         setLoading(false);
         return;
       }
-      console.log("1");
+
       if (hasExpiredToken(fToken)) {
         limpiaFolioStorage();
       } else {
         await setFolioCtx(fToken);
       }
-      console.log("2");
+
       setLoading(false);
     })();
   }, []);
 
+  /**
+   * Decodifica fToken y lo busca en DB (equivalente a login)
+   * Si existe, lo guarda localmente para uso posterior
+   * @param {*} fToken
+   */
   const setFolioCtx = async (fToken) => {
     try {
-      //Equivalente a getMe
       const response = await folioController.decode(fToken);
-      console.log("decode response", response);
       setFolio(response);
     } catch (error) {
       console.error(error);
     }
   };
 
+  /**
+   *Limpia folio de storage
+   */
   const limpiaFolioStorage = () => {
     setFolio(null);
     folioController.removeFolioStorage();

@@ -3,8 +3,11 @@ import { Form, Radio, Checkbox } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B4.form";
+import { NavigationButtons } from "../NavigationButtons";
+import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
 
 const tacController = new Tac();
+const tn = new TacNavigation();
 
 export function B4(props) {
   const { criteria, setCriteria, qData } = props;
@@ -14,8 +17,8 @@ export function B4(props) {
   const [button, setButton] = useState(null);
 
   console.log(qData);
-  console.log(criteria.survey[sID].questions);
 
+  /*
   const next = (i) => {
     if (i > criteria.survey[sID].questions.length - 1) {
       i = criteria.survey[sID].questions.length - 1;
@@ -33,6 +36,7 @@ export function B4(props) {
     console.log(i);
     console.log(criteria.qIndex);
   };
+  */
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -54,13 +58,15 @@ export function B4(props) {
           await tacController.createQuestion(newData);
         }
 
-        if (button === 1) {
+        tn.updateQuestion(button, setCriteria);
+        /*
+        if (button === "anterior") {
           console.log("Button 1 clicked!");
           previous(criteria.qIndex - 1);
-        } else if (button === 2) {
+        } else if (button ==="siguiente") {
           console.log("Button 2 clicked!");
           next(criteria.qIndex + 1);
-        }
+        }*/
       } catch (error) {
         console.error(error);
       }
@@ -122,32 +128,7 @@ export function B4(props) {
             error={formik.errors.qRes}
           />
         </Form.Group>
-        <div className="tac-form__buttons">
-          <Form.Button
-            type="submit"
-            value="1"
-            secondary
-            loading={formik.isSubmitting}
-            onClick={() => {
-              setButton(1);
-            }}
-          >
-            Anterior B4
-          </Form.Button>
-
-          <Form.Button
-            type="submit"
-            value="2"
-            primary
-            fluid
-            loading={formik.isSubmitting}
-            onClick={() => {
-              setButton(2);
-            }}
-          >
-            Siguiente B4
-          </Form.Button>
-        </div>
+        <NavigationButtons setButton={setButton} formik={formik} />
       </Form>
     </div>
   );

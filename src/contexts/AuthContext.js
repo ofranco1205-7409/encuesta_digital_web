@@ -11,7 +11,7 @@ export function AuthProvider(props) {
   const { children } = props;
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const [laoding, setLaoding] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -20,7 +20,7 @@ export function AuthProvider(props) {
 
       if (!accessToken || !refreshToken) {
         logout();
-        setLaoding(false);
+        setLoading(false);
         return;
       }
 
@@ -34,7 +34,7 @@ export function AuthProvider(props) {
         await login(accessToken);
       }
 
-      setLaoding(false);
+      setLoading(false);
     })();
   }, []);
 
@@ -75,7 +75,7 @@ export function AuthProvider(props) {
     logout,
   };
 
-  if (laoding) return null;
+  if (loading) return null;
 
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 }

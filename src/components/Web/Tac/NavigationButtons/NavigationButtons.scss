@@ -1,10 +1,10 @@
 .navigation-buttons {
-  background-color: aqua;
+  //background-color: aqua;
   display: flex;
   justify-content: flex-start;
 
   &__progress-bar {
-    background-color: greenyellow;
+    //background-color: greenyellow;
     width: 100%;
     display: flex;
     min-width: fit-content;
@@ -14,5 +14,7 @@
     justify-content: center;
 
     align-self: center;
+
+    margin: 5px;
   }
 }

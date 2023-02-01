@@ -1,0 +1,9 @@
+@import "~/src/scss/index.scss";
+
+.C1_4 {
+  .ui.form .field .ui.input,
+  .ui.form .fields .field .ui.input,
+  .ui.form .wide.field .ui.input {
+    width: 80px !important;
+  }
+}

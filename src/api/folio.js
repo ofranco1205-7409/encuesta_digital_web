@@ -27,7 +27,11 @@ export class Folio {
     }
   }
 
-  //Equivalente a getMe
+  /**
+   * Busca folio en DB (equivalente a getMe)
+   * @param {*} fToken
+   * @returns
+   */
   async decode(fToken) {
     try {
       const url = `${this.baseApi}/${ENV.API_TAC_ROUTES.F_DECODE}`;
@@ -49,7 +53,11 @@ export class Folio {
     }
   }
 
-  //Equivalente a login
+  /**
+   * Busca folio en DB (equivalente a login)
+   * @param {*} fToken
+   * @returns
+   */
   async encode(data) {
     try {
       const url = `${this.baseApi}/${ENV.API_TAC_ROUTES.F_ENCODE}`;
@@ -72,14 +80,24 @@ export class Folio {
     }
   }
 
+  /**
+   *Salva Folio token en local storage
+   */
   setFolioStorage(fTtoken) {
     localStorage.setItem(ENV.JWT.F_TOKEN, fTtoken);
   }
+
+  /**
+   *Recupera Folio token en local storage
+   */
 
   getFolioStorage() {
     return localStorage.getItem(ENV.JWT.F_TOKEN);
   }
 
+  /**
+   *Elimina Folio token de local storage
+   */
   removeFolioStorage() {
     localStorage.removeItem(ENV.JWT.FOLIO);
   }

@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { size, map } from "lodash";
 import { Tac } from "../../../api";
-import { Loader, Step, Container } from "semantic-ui-react";
+import { Loader, Step, Container, Grid, Image } from "semantic-ui-react";
 import { Survey } from "../../../components/Web/Tac/Survey";
 import { useFolio } from "../../../hooks";
+import { TacNavigation } from "../../../components/Web/Tac/TacNavigation";
 import { Test } from ".";
 import "./EncuestaTac.scss";
 
 const tacController = new Tac();
+const tn = new TacNavigation();
 
 export function EncuestaTac() {
   const { folio } = useFolio();
 
-  console.log("EncuestaTac folio", folio);
-
   const [qData, setqData] = useState(null);
 
+  const sID_inicial = 2;
+  const qIndex_inicial = 3;
+  const qID_inicial = tn.qID({ sID: sID_inicial, qIndex: qIndex_inicial });
   const [criteria, setCriteria] = useState({
     folio: folio._id,
-    sID: 1,
-    qIndex: 0,
-    sComplete: [true, false, false, false],
+    sID: sID_inicial,
+    qIndex: qIndex_inicial,
+    qID: qID_inicial,
+  });
+
+  /*
+  sComplete: [true, false, false, false],
     survey: [
       {
         id: 0,
@@ -33,7 +40,7 @@ export function EncuestaTac() {
         questions: ["A1", "A2"],
       },
       {
-        id: 1,
+        id: 0,
         key: "Identificacion",
         completed: false,
         active: false,
@@ -50,7 +57,7 @@ export function EncuestaTac() {
         icon: "truck",
         title: "Operador",
         description: "Enter billing information",
-        questions: ["C1", "C2"],
+        questions: ["C1_1", "C1_2", "C1_3", "C1_4", "C1_5"],
       },
       {
         id: 3,
@@ -66,198 +73,26 @@ export function EncuestaTac() {
     qID: (survey, sID, qIndex) => {
       return survey[sID].questions[qIndex];
     },
-  });
+  */
 
-  const updateSteps = (criteria) => {
-    return map(criteria.survey, (seccion) => {
-      seccion.active = seccion.id === criteria.sID;
-      seccion.completed = criteria.sComplete[seccion.id];
-      return seccion;
-    });
-  };
-
-  var steps = updateSteps(criteria);
-
-  const questions = [
-    {
-      key: "B1",
-      completed: true,
-      active: false,
-      icon: "truck",
-      title: "B1",
-      description: "",
-    },
-    {
-      key: "B2",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B2",
-      description: "",
-    },
-    {
-      key: "B3",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B3",
-      description: "",
-    },
-    {
-      key: "B4",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B4",
-      description: "",
-    },
-    {
-      key: "B5",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B5",
-      description: "",
-    },
-    {
-      key: "B6",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B6",
-      description: "",
-    },
-    {
-      key: "B7",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B7",
-      description: "",
-    },
-    {
-      key: "B8",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B8",
-      description: "",
-    },
-    {
-      key: "B1",
-      completed: true,
-      active: false,
-      icon: "truck",
-      title: "B1",
-      description: "",
-    },
-    {
-      key: "B2",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B2",
-      description: "",
-    },
-    {
-      key: "B3",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B3",
-      description: "",
-    },
-    {
-      key: "B4",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B4",
-      description: "",
-    },
-    {
-      key: "B5",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B5",
-      description: "",
-    },
-    {
-      key: "B6",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B6",
-      description: "",
-    },
-    {
-      key: "B7",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B7",
-      description: "",
-    },
-    {
-      key: "B8",
-      completed: false,
-      active: true,
-      icon: "payment",
-      title: "B8",
-      description: "",
-    },
-  ];
-
-  const steps_tmp = [
-    {
-      key: "Introduccion",
-      completed: true,
-      icon: "truck",
-      title: "Introduccion",
-      description: "Choose your shipping options",
-    },
-    {
-      key: "Identificacion",
-      active: true,
-      icon: "payment",
-      title: "Identificacion",
-      description: "Enter billing information",
-    },
-    {
-      key: "Operador",
-      icon: "truck",
-      title: "Operador",
-      description: "Enter billing information",
-    },
-    {
-      key: "Usuario",
-      icon: "user",
-      title: "Usuario",
-      description: "Enter billing information",
-    },
-    {
-      key: "confirm",
-      disabled: true,
-      icon: "info",
-      title: "Envir Informacion",
-    },
-  ];
+  var steps = tn.updateSteps(criteria);
 
   useEffect(() => {
     (async () => {
+      const { folio, qID } = criteria;
       try {
         setqData(null);
 
+        console.log("criteria", criteria);
         const response = await tacController.getQuestions(criteria);
 
         if (response[0]) {
           setqData(response[0]);
         } else {
-          //folio, qID
-          const { folio, qID, survey, sID, qIndex } = criteria;
-          setqData({ folio, qID: qID(survey, sID, qIndex), qRes: "" });
+          setqData({ folio, qID, qRes: null });
         }
+
+        console.log("qData", qData);
       } catch (error) {
         console.error(error);
       }
@@ -265,23 +100,30 @@ export function EncuestaTac() {
   }, [criteria]);
 
   if (!qData) return <Loader active inline="centered" />;
-  if (size(qData) === 0) return "No hay ninguna pregunta en DB";
+  if (size(qData) === 0) return "No hay registros en DB";
 
   return (
-    <Container>
-      <div className="tac">
-        <div className="tac__left">
-          <Step.Group vertical items={steps} size="mini" />
+    <>
+      <Container>
+        <div className="tac">
+          <div className="tac__left">
+            <Step.Group
+              vertical={true}
+              stackable="tablet"
+              items={steps}
+              size="mini"
+            />
+          </div>
+          <div className="tac__right">
+            <Survey
+              criteria={criteria}
+              setCriteria={setCriteria}
+              qData={qData}
+              //setqData={setqData}
+            />
+          </div>
         </div>
-        <div className="tac__right">
-          <Survey
-            criteria={criteria}
-            setCriteria={setCriteria}
-            qData={qData}
-            setqData={setqData}
-          />
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 }

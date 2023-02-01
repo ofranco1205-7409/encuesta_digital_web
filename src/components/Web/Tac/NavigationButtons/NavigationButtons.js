@@ -3,17 +3,29 @@ import { Form, Progress } from "semantic-ui-react";
 import "./NavigationButtons.scss";
 
 export function NavigationButtons(props) {
-  const { setButton, formik } = props;
+  const { setButton, formik, noSubmit } = props;
+
+  /*
+  const onClickHandler = (navigation, handler) => {
+    console.log("navigation", navigation);
+    setButton(navigation);
+    if (handler) {
+      handler();
+    } else {
+      console.log("Sin handler");
+    }
+  };
+*/
 
   return (
     <div className="navigation-buttons">
       <Form.Button
         type="submit"
-        value="1"
+        value="anterior"
         secondary
         loading={formik.isSubmitting}
         onClick={() => {
-          setButton(1);
+          setButton("anterior");
         }}
       >
         Anterior
@@ -21,20 +33,25 @@ export function NavigationButtons(props) {
 
       <Form.Button
         type="submit"
-        value="2"
+        value="siguiente"
         primary
         fluid
         loading={formik.isSubmitting}
         onClick={() => {
-          setButton(2);
+          setButton("siguiente");
         }}
       >
         Siguiente
       </Form.Button>
+
       <div className="navigation-buttons__progress-bar">
-        <Progress value="1" total="8" size="tiny" color="grey">
-          1/8
-        </Progress>
+        <Progress
+          value="7"
+          total="8"
+          progress="ratio"
+          size="medium"
+          color="grey"
+        ></Progress>
       </div>
     </div>
   );

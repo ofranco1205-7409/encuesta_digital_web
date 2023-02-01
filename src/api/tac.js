@@ -1,11 +1,16 @@
 import { ENV } from "../utils";
+import { map } from "lodash";
 
 export class Tac {
   baseApi = ENV.BASE_API;
 
-  async getQuestions(criteria) {
-    const { folio, survey, sID, qIndex } = criteria;
-    const qID = criteria.qID(survey, sID, qIndex);
+  /**
+   *
+   * @param  qData  { folio, qID }
+   * @returns
+   */
+  async getQuestions(qData) {
+    const { folio, qID } = qData;
 
     try {
       const url = `${this.baseApi}/${ENV.API_TAC_ROUTES.QUESTIONS}?folio=${folio}&qID=${qID}`;
@@ -50,6 +55,7 @@ export class Tac {
 
       if (response.status !== 201) throw result;
 
+      console.log(result);
       return result;
     } catch (error) {
       throw error;
@@ -74,9 +80,48 @@ export class Tac {
 
       if (response.status !== 201) throw result;
 
+      console.log(result);
       return result;
     } catch (error) {
       throw error;
     }
+  }
+
+  async updateRetos(qData, newReto, deleteOrder, operacion) {
+    console.log("qData", qData);
+    console.log("newReto", newReto);
+    console.log("deleteOrder", deleteOrder);
+    console.log("operacion", operacion);
+    const { folio, qID } = qData;
+
+    const questions = await this.getQuestions(qData);
+
+    let retos = null;
+    if (questions[0]) {
+      retos = questions[0].qRes;
+    }
+
+    let newRetos = !retos ? new Array() : [...retos];
+    switch (operacion) {
+      case "I":
+        newRetos.splice(newReto.order - 1, 0, newReto);
+        break;
+      case "U":
+        newRetos.splice(deleteOrder - 1, 1);
+        newRetos.splice(newReto.order - 1, 0, newReto);
+        break;
+      case "D":
+        newRetos.splice(deleteOrder - 1, 1);
+        break;
+      default:
+        break;
+    }
+
+    console.log("newRetos", newRetos);
+    await this.updateQuestion({
+      folio,
+      qID,
+      qRes: map(newRetos, (reto, i) => ({ ...reto, order: i + 1 })),
+    });
   }
 }

@@ -1,0 +1,17 @@
+@import "~/src/scss/index.scss";
+
+.a2 {
+  &__retos {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    &__add {
+      display: block;
+      align-self: auto;
+
+      //position: absolute;
+      //right: 0;
+      //top: 0;
+    }
+  }
+}
