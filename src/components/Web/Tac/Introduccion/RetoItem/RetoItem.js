@@ -44,14 +44,16 @@ export function RetoItem(props) {
     <>
       <div className="menu-item">
         <div className="menu-item__info">
-          <span className="menu-item__info-title">{reto.title}</span>
+          <span className="menu-item__info-title">
+            {reto.order + ".- " + reto.title}
+          </span>
         </div>
 
         <div>
-          <Button icon primary onClick={openUpdateReto}>
+          <Button icon primary onClick={openUpdateReto} size="mini">
             <Icon name="pencil" />
           </Button>
-          <Button icon color="red" onClick={openDeleteConfirm}>
+          <Button icon color="red" onClick={openDeleteConfirm} size="mini">
             <Icon name="trash" />
           </Button>
         </div>

@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Button, Form, Tab, Progress } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Tab,
+  Progress,
+  Divider,
+  Header,
+} from "semantic-ui-react";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./A2.form";
@@ -67,16 +74,22 @@ export function A2(props) {
   return (
     <>
       <div className="a2">
-        <h2>
-          A2. Si considera que existen retos adicionales que no han sido
-          incluidos en la lista anterior, por favor agregelos y ordenelos
-          arrastrando a su posición en la lista
-        </h2>
+        <Header as="h3" dividing>
+          <Header.Content>
+            A2.- Considera que existen retos adicionales que no han sido
+            incluidos en la lista anterior
+          </Header.Content>
+          <Header.Subheader>
+            Por favor agregelos y ordenelos arrastrando a su posición en la
+            lista
+          </Header.Subheader>
+        </Header>
         <div className="a2__retos">
           <Button className="a2__retos__add" primary onClick={onOpenCloseModal}>
             Agregar reto
           </Button>
         </div>
+        <p />
         <ListReto
           reload={reload}
           onReload={onReload}
@@ -85,6 +98,7 @@ export function A2(props) {
           setRetos={setRetos}
         />
         <p />
+        <Divider />
         <Form onSubmit={formik.handleSubmit}>
           <NavigationButtons
             setButton={setButton}

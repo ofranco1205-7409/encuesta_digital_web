@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Progress } from "semantic-ui-react";
+import { Divider, Form, Progress, Segment } from "semantic-ui-react";
 import "./NavigationButtons.scss";
 
 export function NavigationButtons(props) {

@@ -12,32 +12,27 @@
       margin: 0;
       list-style: none;
       padding: 1px;
-      //border-radius: 5px;
+      border-radius: 5px;
       font-size: 1rem;
 
       display: inline-flex;
       flex-direction: column;
 
-      li:hover {
-        //background: #dedede;
-        background: #dedede;
-      }
-
       &__task-item {
         color: black;
-        //box-shadow: 0px 2px 4px #4a4c4e;
-        //border-radius: 5px;
-        padding: 5px 5px;
+        box-shadow: 0px 2px 4px #4a4c4e;
+        border-radius: 5px;
+        padding: 0.3em 0.5em;
         background-color: whitesmoke;
         text-align: left;
-        margin: 0px;
-        border-bottom: 1px dotted #bbb;
+        margin: 5px;
+        border: 2px solid transparent;
       }
 
       &__task-item:active {
         outline: none;
         //border: 2px solid #4a9af5;
-        background-color: #dedede;
+        background-color: #4a9af5;
       }
     }
     > h2 {

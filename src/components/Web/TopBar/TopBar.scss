@@ -3,6 +3,17 @@
 .top-bar {
   height: 60px;
   background-color: $background-dark-web;
+  //border-top: 3px solid $primary;
+  //border-bottom: 3px solid $primary;
+
+  h1 {
+    color: $text-light;
+    font-size: 45px;
+
+    margin-bottom: 20px;
+    //line-height: 55px;
+    //z-index: 100;
+  }
 
   > .ui.container {
     display: flex;
@@ -12,15 +23,24 @@
   }
 
   &__left {
+    //border: 1px dashed white;
     height: 100%;
     display: flex;
     align-items: center;
+
+    width: fit-content;
 
     .logo {
       height: 60%;
       > svg {
         height: 100%;
       }
+    }
+
+    &__rigth {
+      //border: 1px dashed white;
+      //height: 100%;
+      //display: flex;
     }
 
     .menu {
@@ -33,6 +53,32 @@
           opacity: 0.6;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .top-bar {
+    &__rigth {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .top-bar {
+    height: 120px;
+    h1 {
+      font-size: 45px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .top-bar {
+    height: 120px;
+    h1 {
+      font-size: 45px;
     }
   }
 }

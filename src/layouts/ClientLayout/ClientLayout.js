@@ -17,7 +17,7 @@ export function ClientLayout(props) {
       <div className="client-layout__footer">
         <Container>
           <span>© ALL RIGHTS RESERVED</span>
-          <span>XXXXX | XXXXX</span>
+          <span> DigiTAC | TDR Internacional 2023</span>
         </Container>
       </div>
     </div>

@@ -28,7 +28,8 @@ export function TopBar() {
       <Container>
         <div className="top-bar__left">
           <Link to="/" className="logo"></Link>
-
+          <h1>Encuesta de Opinión DIGITAC-HUB </h1>
+          {/*
           <div className="menu">
             {map(menu, (item) => (
               <a key={item._id} href={item.path}>
@@ -36,9 +37,10 @@ export function TopBar() {
               </a>
             ))}
           </div>
+            */}
         </div>
 
-        <div>
+        <div className="top-bar__rigth">
           {map(socialData, (social) => (
             <Button
               key={social.type}

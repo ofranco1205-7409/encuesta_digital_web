@@ -1,0 +1,80 @@
+@import "~/src/scss/index.scss";
+
+.Tacbanner {
+  //height: 500px;
+  //background-color: #54595f;
+  //background-color: $background-dark-web;
+  background-image: url("../../../assets/road_navigation.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+
+  &__dark {
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  &__text {
+    //margin: 1px;
+
+    text-align: justify;
+    text-justify: inter-word;
+
+    > p {
+      padding: 0px 12px;
+      color: $text-light;
+      font-size: 14px;
+      z-index: 100;
+
+      font-family: "Roboto Condensed", Sans-serif;
+    }
+
+    > h2 {
+      color: $text-light;
+      font-weight: 200;
+      font-size: 25px;
+      padding: 5px;
+      z-index: 200;
+
+      font-family: "Roboto Condensed", Sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.4em;
+    }
+  }
+
+  &__button {
+    &__encuesta {
+      //background-color: red;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0px 10px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .containerxxxx {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1xxx {
+    color: $text-light;
+    font-size: 60px;
+    line-height: 55px;
+    z-index: 100;
+  }
+}

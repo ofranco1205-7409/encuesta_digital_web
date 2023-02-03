@@ -6,15 +6,15 @@
   &__footer {
     background-color: $background-dark-web;
     //margin-top: 10px;
-    padding: 20px 0 10px 0;
-    border-top: 3px solid $primary;
+    //padding: 20px 0 10px 0;
+    //border-top: 3px solid $primary;
 
     > .ui.container {
       display: flex;
 
       &:last-of-type {
         justify-content: space-between;
-        margin-top: 1px;
+        //margin-top: 5px;
         color: $text-light;
         font-size: 12px;
         opacity: 0.4;

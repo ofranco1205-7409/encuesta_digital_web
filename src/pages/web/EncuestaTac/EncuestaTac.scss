@@ -1,23 +1,63 @@
 @import "~/src/scss/index.scss";
 
-.tac {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.encuestaTac {
+  margin-bottom: 5px;
 
-  width: 100%;
-  background-color: $background-grey;
-
-  //border: 2px dashed $primary;
-
-  &__left {
-    background-color: $background-dark-web;
-    padding: 10px;
+  .ui.massive.segment,
+  .ui.massive.segments .segment {
+    margin-top: 5px;
   }
 
-  &__right {
-    margin: 10px;
+  &__header {
     width: 100%;
+    min-width: fit-content;
+    border-bottom: 5px solid gray;
+  }
+  &__tac {
+    display: flex;
+    flex-direction: row;
+    //align-items: center;
+    //justify-content: center;
+
+    width: 100%;
+    background-color: $background-grey;
+
+    //border: 2px dashed $primary;
+
+    &__left {
+      //background-color: $background-dark-web;
+      padding: 10px;
+    }
+
+    &__right {
+      margin: 10px;
+      width: 100%;
+    }
+  }
+}
+/*
+@media screen and (max-width: 1024px) {
+  .a {
+    display: none;
+  }
+}
+@media screen and (max-width: 924px) {
+  .b {
+    display: none;
+  }
+}
+@media screen and (max-width: 824px) {
+  .c {
+    display: none;
+  }
+}
+*/
+@media screen and (max-width: 500px) {
+  .encuestaTac {
+    &__.tac {
+      &__left {
+        display: none;
+      }
+    }
   }
 }

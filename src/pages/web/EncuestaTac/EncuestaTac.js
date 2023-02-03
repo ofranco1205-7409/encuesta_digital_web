@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { size } from "lodash";
 import { Tac } from "../../../api";
-import { Loader, Step, Container } from "semantic-ui-react";
+import {
+  Loader,
+  Step,
+  Container,
+  Segment,
+  Icon,
+  Header,
+} from "semantic-ui-react";
 import { Survey } from "../../../components/Web/Tac/Survey";
 import { useFolio } from "../../../hooks";
 import { TacNavigation } from "../../../components/Web/Tac/TacNavigation";
@@ -24,55 +31,6 @@ export function EncuestaTac() {
     qIndex: qIndex_inicial,
     qID: qID_inicial,
   });
-
-  /*
-  sComplete: [true, false, false, false],
-    survey: [
-      {
-        id: 0,
-        key: "Introduccion",
-        completed: false,
-        active: false,
-        icon: "truck",
-        title: "Introduccion",
-        description: "Choose your shipping options",
-        questions: ["A1", "A2"],
-      },
-      {
-        id: 0,
-        key: "Identificacion",
-        completed: false,
-        active: false,
-        icon: "payment",
-        title: "Identificacion",
-        description: "Enter billing information",
-        questions: ["B1", "B2", "B3", "B4"],
-      },
-      {
-        id: 2,
-        key: "Operador",
-        completed: false,
-        active: false,
-        icon: "truck",
-        title: "Operador",
-        description: "Enter billing information",
-        questions: ["C1_1", "C1_2", "C1_3", "C1_4", "C1_5"],
-      },
-      {
-        id: 3,
-        key: "Usuario",
-        completed: false,
-        active: false,
-        icon: "user",
-        title: "Usuario",
-        description: "Enter billing information",
-        questions: ["D1", "D2"],
-      },
-    ],
-    qID: (survey, sID, qIndex) => {
-      return survey[sID].questions[qIndex];
-    },
-  */
 
   var steps = tn.updateSteps(criteria);
 
@@ -104,23 +62,36 @@ export function EncuestaTac() {
   return (
     <>
       <Container>
-        <div className="tac">
-          <div className="tac__left">
-            <Step.Group
-              vertical={true}
-              stackable="tablet"
-              items={steps}
-              size="mini"
-            />
-          </div>
-          <div className="tac__right">
-            <Survey
-              criteria={criteria}
-              setCriteria={setCriteria}
-              qData={qData}
-              //setqData={setqData}
-            />
-          </div>
+        <div className="encuestaTac">
+          <Segment color="blue" size="massive" textAlign="left">
+            <Header as="h2" dividing>
+              <Icon name="payment" size="big" />
+              <Header.Content>
+                <span className="encuestaTac__header">Identificación </span>
+              </Header.Content>
+              <Header.Subheader>
+                Manage your account settings and set e-mail preferences.
+              </Header.Subheader>
+            </Header>
+          </Segment>
+          <Segment color="black" secondary className="encuestaTac__tac">
+            <div className="encuestaTac__tac__left">
+              <Step.Group
+                vertical={true}
+                stackable="tablet"
+                items={steps}
+                size="mini"
+              />
+            </div>
+            <div className="encuestaTac__tac__right">
+              <Survey
+                criteria={criteria}
+                setCriteria={setCriteria}
+                qData={qData}
+                //setqData={setqData}
+              />
+            </div>
+          </Segment>
         </div>
       </Container>
     </>

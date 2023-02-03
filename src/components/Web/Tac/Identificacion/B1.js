@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Form, Accordion, Icon, Checkbox } from "semantic-ui-react";
+import {
+  Form,
+  Accordion,
+  Icon,
+  Checkbox,
+  Label,
+  Divider,
+} from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B1.form";
@@ -62,10 +69,11 @@ export function B1(props) {
     <div className="tac-form">
       <Form onSubmit={formik.handleSubmit}>
         <h3>
-          1.- ¿Con cuáles de las siguientes definiciones se identifica su
+          B1.- ¿Con cuáles de las siguientes definiciones se identifica su
           actividad principal?
         </h3>
-        <Accordion>
+        <Divider />
+        <Accordion styled fluid>
           <Accordion.Title
             active={activeIndex === 0}
             index={0}
@@ -83,8 +91,8 @@ export function B1(props) {
                 name="B1"
                 //id="qRes2"
                 onChange={formik.handleChange}
-                value="A"
-                checked={formik.values.B1.includes("A")}
+                value="101"
+                checked={formik.values.B1.includes("101")}
                 error={formik.errors.qRes}
               />
               <Form.Field
@@ -94,8 +102,8 @@ export function B1(props) {
                 name="B1"
                 //id="qRes2"
                 onChange={formik.handleChange}
-                value="B"
-                checked={formik.values.B1.includes("B")}
+                value="102"
+                checked={formik.values.B1.includes("102")}
                 error={formik.errors.qRes}
               />
               <Form.Field
@@ -105,8 +113,8 @@ export function B1(props) {
                 name="B1"
                 //id="qRes2"
                 onChange={formik.handleChange}
-                value="C"
-                checked={formik.values.B1.includes("C")}
+                value="103"
+                checked={formik.values.B1.includes("103")}
                 error={formik.errors.qRes}
               />
               <Form.Field
@@ -116,22 +124,122 @@ export function B1(props) {
                 name="B1"
                 //id="qRes2"
                 onChange={formik.handleChange}
-                value="D"
-                checked={formik.values.B1.includes("D")}
+                value="104"
+                checked={formik.values.B1.includes("104")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transporte de carga general internacional"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="105"
+                checked={formik.values.B1.includes("105")}
+                error={formik.errors.qRes}
+              />
+
+              <Form.Field
+                label="Transporte de carga contenerizada internacional"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="106"
+                checked={formik.values.B1.includes("106")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transporte de carga en tránsito fiscal / ZFs"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="107"
+                checked={formik.values.B1.includes("107")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transporte de automóviles"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="108"
+                checked={formik.values.B1.includes("108")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Cadena de frío"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="109"
+                checked={formik.values.B1.includes("109")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Camión aéreo"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="110"
+                checked={formik.values.B1.includes("110")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transporte de graneles sólidos"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="111"
+                checked={formik.values.B1.includes("111")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transporte de graneles líquidos no peligrosos"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="112"
+                checked={formik.values.B1.includes("112")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Productos peligrosos"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="113"
+                checked={formik.values.B1.includes("113")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transporte de combustibles y derivados"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="114"
+                checked={formik.values.B1.includes("114")}
                 error={formik.errors.qRes}
               />
             </Form.Group>
-            <Checkbox label="Transporte de carga general internacional" />
-            <Checkbox label="Transporte de carga contenerizada internacional" />
-            <Checkbox label="Transporte de carga en tránsito fiscal / ZFs" />
-            <Checkbox label="Transporte de automóviles" />
-            <Checkbox label="Cadena de frío" />
-            <Checkbox label="Camión aéreo" />
-            <Checkbox label="Transporte de graneles sólidos" />
-            <Checkbox label="Transporte de graneles líquidos no peligrosos" />
-
-            <Checkbox label="Productos peligrosos" />
-            <Checkbox label="Transporte de combustibles y derivados" />
           </Accordion.Content>
 
           <Accordion.Title
@@ -144,12 +252,74 @@ export function B1(props) {
             de carga, agente de aduanas, agente naviero, transitario)
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
-            <Checkbox label="Almacenista" /> <br />
-            <Checkbox label="Agente de carga" /> <br />
-            <Checkbox label="Agente de aduanas" /> <br />
-            <Checkbox label="Agente naviero, consignatario" /> <br />
-            <Checkbox label="Transitario" /> <br />
-            <Checkbox label="Operador logístico 3PL/4PL/5PL" /> <br />
+            <Form.Group grouped>
+              <Form.Field
+                label="Almacenista"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="201"
+                checked={formik.values.B1.includes("201")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Agente de carga"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="202"
+                checked={formik.values.B1.includes("202")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Agente de aduanas"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="203"
+                checked={formik.values.B1.includes("203")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Agente naviero, consignatario"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="204"
+                checked={formik.values.B1.includes("204")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Transitario"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="205"
+                checked={formik.values.B1.includes("205")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Operador logístico 3PL/4PL/5PL"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="206"
+                checked={formik.values.B1.includes("206")}
+                error={formik.errors.qRes}
+              />
+            </Form.Group>
           </Accordion.Content>
 
           <Accordion.Title
@@ -161,14 +331,63 @@ export function B1(props) {
             Cargador, propietario de de mercancía
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>
-            <Checkbox label="Productores de materia prima (vegetal o mineral)" />{" "}
-            <br />
-            <Checkbox label="Fabricantes de productos industriales (intermedio o final)" />{" "}
-            <br />
-            <Checkbox label="Sector Construcción" /> <br />
-            <Checkbox label="Sector Energía y Combustibles " /> <br />
-            <Checkbox label="Importadores y distribuidores comerciales (mayoristas y minoristas)" />{" "}
-            <br />
+            <Form.Group grouped>
+              <Form.Field
+                label="Productores de materia prima (vegetal o mineral)"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="301"
+                checked={formik.values.B1.includes("301")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Fabricantes de productos industriales (intermedio o final)"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="302"
+                checked={formik.values.B1.includes("302")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Sector Construcción"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="303"
+                checked={formik.values.B1.includes("303")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Sector Energía y Combustibles"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="304"
+                checked={formik.values.B1.includes("304")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Importadores y distribuidores comerciales (mayoristas y minoristas)"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="305"
+                checked={formik.values.B1.includes("305")}
+                error={formik.errors.qRes}
+              />
+            </Form.Group>
           </Accordion.Content>
 
           <Accordion.Title
@@ -180,12 +399,35 @@ export function B1(props) {
             Otro
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 3}>
-            <Checkbox label="Operador de infraestructura de transporte o logística (terminal portuario, aeroportuario, operardor de autopista, etc.)" />{" "}
-            <br />
-            <Checkbox label="Sector público" /> <br />
+            <Form.Group grouped>
+              <Form.Field
+                label="Operador de infraestructura de transporte o logística (terminal portuario, aeroportuario, operardor de autopista, etc.)"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="401"
+                checked={formik.values.B1.includes("401")}
+                error={formik.errors.qRes}
+              />
+              <Form.Field
+                label="Sector público"
+                control="input"
+                type="checkbox"
+                name="B1"
+                //id="qRes2"
+                onChange={formik.handleChange}
+                value="402"
+                checked={formik.values.B1.includes("402")}
+                error={formik.errors.qRes}
+              />
+            </Form.Group>
           </Accordion.Content>
         </Accordion>
 
+        <p />
+        <Divider />
         <NavigationButtons
           setButton={setButton}
           formik={formik}

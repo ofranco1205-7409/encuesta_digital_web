@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { Form, Loader } from "semantic-ui-react";
+import { Divider, Form, Header, Loader, Segment } from "semantic-ui-react";
 import { size, map } from "lodash";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
@@ -16,51 +16,51 @@ const tn = new TacNavigation();
 
 const initialRetos = [
   {
-    text: "Reto 1. La empresarialización del sector y la persistencia de la informalidad y la atomización",
+    text: "La empresarialización del sector y la persistencia de la informalidad y la atomización",
     order: 1,
   },
   {
-    text: "Reto 2. Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
+    text: "Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
     order: 2,
   },
   {
-    text: "Reto 3. Las barreras de inclusión y la equidad de género en el TAC",
+    text: "Las barreras de inclusión y la equidad de género en el TAC",
     order: 3,
   },
   {
-    text: "Reto 4. La sostenibilidad financiera y rentabilización de las operaciones",
+    text: "La sostenibilidad financiera y rentabilización de las operaciones",
     order: 4,
   },
   {
-    text: "Reto 5. El fortalecimiento de la profesionalización y capacitación",
+    text: "El fortalecimiento de la profesionalización y capacitación",
     order: 5,
   },
   {
-    text: "Reto 6. La situación de la accidentabilidad en el servicio TAC",
+    text: "La situación de la accidentabilidad en el servicio TAC",
     order: 6,
   },
   {
-    text: "Reto 7. El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
+    text: "El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
     order: 7,
   },
   {
-    text: "Reto 8. Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
+    text: "Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
     order: 8,
   },
   {
-    text: "Reto 9. Las energías verdes y la adaptación al cambio climático de la flota TAC",
+    text: "Las energías verdes y la adaptación al cambio climático de la flota TAC",
     order: 9,
   },
   {
-    text: "Reto 10. El contexto de seguridad (física, cyber, etc.)",
+    text: "El contexto de seguridad (física, cyber, etc.)",
     order: 10,
   },
   {
-    text: "Reto 11. Una institucionalidad incompleta e inadecuada",
+    text: "Una institucionalidad incompleta e inadecuada",
     order: 11,
   },
   {
-    text: "Reto 12. La provisión de infraestructura de soporte a la operativa del TAC",
+    text: "La provisión de infraestructura de soporte a la operativa del TAC",
     order: 12,
   },
 ];
@@ -169,10 +169,17 @@ export function A1(props) {
           }}
         >
           <div className="a1__retos">
-            <h2>
-              A. Ordene los siguientes retos claves para el Transporte Automotor
-              de Carga (TAC)
-            </h2>
+            <Header as="h3" dividing>
+              <Header.Content>
+                A1.- Ordene los siguientes retos claves para el Transporte
+                Automotor de Carga (TAC)
+              </Header.Content>
+              <Header.Subheader>
+                Click y sin soltar, arrastre a la que considere su posición
+                correcta en la lista
+              </Header.Subheader>
+            </Header>
+
             <Droppable droppableId="tasks">
               {(droppableProvided) => (
                 <ul
@@ -199,7 +206,7 @@ export function A1(props) {
                               draggableProvided.draggableProps.style
                             )}
                           >
-                            {reto.text}
+                            {reto.order + ".- " + reto.text}
                           </li>
                         )}
                       </Draggable>
@@ -211,7 +218,8 @@ export function A1(props) {
             </Droppable>
           </div>
         </DragDropContext>
-
+        <p />
+        <Divider />
         <Form onSubmit={formik.handleSubmit}>
           <NavigationButtons
             setButton={setButton}
