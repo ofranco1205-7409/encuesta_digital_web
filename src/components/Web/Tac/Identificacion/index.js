@@ -2,4 +2,8 @@ export * from "./B1";
 export * from "./B2";
 export * from "./B3";
 export * from "./B4";
+export * from "./B5";
+export * from "./B6";
+export * from "./B7";
+export * from "./B8";
 export * from "./Identificacion";

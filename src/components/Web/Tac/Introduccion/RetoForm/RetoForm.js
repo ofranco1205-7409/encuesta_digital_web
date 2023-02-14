@@ -85,41 +85,30 @@ export function RetoForm(props) {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <Form.Group>
-        <Form.Input
-          name="title"
-          placeholder="Nombre del reto"
-          onChange={formik.handleChange}
-          value={formik.values.title}
-          error={formik.errors.title}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Label basic>Prioridad del reto</Label>
-        <Dropdown
-          name="order"
-          placeholder="Prioridad del reto"
-          options={options()}
-          onChange={(_, data) => formik.setFieldValue("order", data.value)}
-          value={formik.values.order}
-          error={formik.errors.order}
-        />
-      </Form.Group>
+      <Form.Input
+        label="Reto"
+        name="title"
+        placeholder="Nombre del reto"
+        onChange={formik.handleChange}
+        value={formik.values.title}
+        error={formik.errors.title}
+      />
+
+      <Form.Select
+        label="Prioridad del reto"
+        name="order"
+        placeholder=" Seleccione prioridad"
+        options={options()}
+        onChange={(_, data) => formik.setFieldValue("order", data.value)}
+        value={formik.values.order}
+        error={formik.errors.order}
+      />
 
       <Form.Group />
 
       <Form.Button type="submit" primary fluid loading={formik.isSubmitting}>
-        {reto ? "Actualizar menú" : "Crear menú"}
+        {reto ? "Actualizar reto" : "Crear reto"}
       </Form.Button>
     </Form>
   );
 }
-/*
-const options = [
-  { key: "1", text: "1", value: "1" },
-  { key: "2", text: "2", value: "2" },
-  { key: "3", text: "3", value: "3" },
-  { key: "4", text: "4", value: "4" },
-  { key: "5", text: "5", value: "5" },
-];
-*/

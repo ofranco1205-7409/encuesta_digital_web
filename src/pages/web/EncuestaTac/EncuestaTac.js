@@ -22,8 +22,8 @@ export function EncuestaTac() {
 
   const [qData, setqData] = useState(null);
 
-  const sID_inicial = 0;
-  const qIndex_inicial = 0;
+  const sID_inicial = 2;
+  const qIndex_inicial = 17;
   const qID_inicial = tn.qID({ sID: sID_inicial, qIndex: qIndex_inicial });
   const [criteria, setCriteria] = useState({
     folio: folio._id,
@@ -33,6 +33,7 @@ export function EncuestaTac() {
   });
 
   var steps = tn.updateSteps(criteria);
+  var currentHeader = tn.getCurrentHeader(criteria);
 
   useEffect(() => {
     (async () => {
@@ -40,7 +41,7 @@ export function EncuestaTac() {
       try {
         setqData(null);
 
-        console.log("criteria", criteria);
+        console.warn("EncuestaTac criteria", criteria);
         const response = await tacController.getQuestions(criteria);
 
         if (response[0]) {
@@ -65,23 +66,18 @@ export function EncuestaTac() {
         <div className="encuestaTac">
           <Segment color="blue" size="massive" textAlign="left">
             <Header as="h2" dividing>
-              <Icon name="payment" size="big" />
+              <Icon name={currentHeader.icon} />
               <Header.Content>
-                <span className="encuestaTac__header">Identificación </span>
+                <span className="encuestaTac__header">{currentHeader.key}</span>
               </Header.Content>
               <Header.Subheader>
-                Manage your account settings and set e-mail preferences.
+                {currentHeader.description_large}
               </Header.Subheader>
             </Header>
           </Segment>
           <Segment color="black" secondary className="encuestaTac__tac">
             <div className="encuestaTac__tac__left">
-              <Step.Group
-                vertical={true}
-                stackable="tablet"
-                items={steps}
-                size="mini"
-              />
+              <Step.Group vertical={true} items={steps} size="mini" />
             </div>
             <div className="encuestaTac__tac__right">
               <Survey

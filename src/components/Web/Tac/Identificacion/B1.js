@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Accordion,
-  Icon,
-  Checkbox,
-  Label,
-  Divider,
-} from "semantic-ui-react";
+import { Form, Accordion, Icon, Divider, Header } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B1.form";
 import { NavigationButtons } from "../NavigationButtons";
 import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
+import "./B1.scss";
+import { size } from "lodash";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
@@ -21,7 +16,7 @@ export function B1(props) {
 
   const [button, setButton] = useState(null);
 
-  console.log(qData);
+  console.log("qData", qData);
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -54,8 +49,15 @@ export function B1(props) {
 
   console.log(formik.values);
 
+  let idx = -1;
+  if (qData.qRes && size(qData.qRes) > 0) {
+    const q0 = qData.qRes[qData.qRes.length - 1];
+    idx = Math.trunc(q0 / 100) - 1;
+    console.log("idx", idx);
+  }
+
   //Acordeon
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(idx);
 
   const handleClick = (e, titleProps) => {
     console.log(titleProps);
@@ -66,13 +68,18 @@ export function B1(props) {
   };
 
   return (
-    <div className="tac-form">
+    <div className="b1">
       <Form onSubmit={formik.handleSubmit}>
-        <h3>
-          B1.- ¿Con cuáles de las siguientes definiciones se identifica su
-          actividad principal?
-        </h3>
-        <Divider />
+        <Header as="h3" dividing>
+          <Header.Content>
+            B1.- ¿Con cuáles de las siguientes definiciones se identifica su
+            actividad principal?
+          </Header.Content>
+          <Header.Subheader>
+            Seleccione todas las opciones que apliquen, tanto en la primera
+            lista, como en las listas secundarias.
+          </Header.Subheader>
+        </Header>
         <Accordion styled fluid>
           <Accordion.Title
             active={activeIndex === 0}

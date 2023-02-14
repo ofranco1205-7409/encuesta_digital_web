@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B4.form";
@@ -18,26 +18,6 @@ export function B4(props) {
 
   console.log(qData);
 
-  /*
-  const next = (i) => {
-    if (i > criteria.survey[sID].questions.length - 1) {
-      i = criteria.survey[sID].questions.length - 1;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-
-  const previous = (i) => {
-    if (i < 0) {
-      i = 0;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-  */
-
   const formik = useFormik({
     initialValues: initialValues(qData),
     validationSchema: validationSchema(),
@@ -50,7 +30,7 @@ export function B4(props) {
           qRes: formValue.qRes,
         };
         console.log(newData);
-        if (qData.qRes) {
+        if (qData.qRes || qData.qRes === "") {
           console.log("Update question");
           await tacController.updateQuestion(newData);
         } else {
@@ -59,14 +39,6 @@ export function B4(props) {
         }
 
         tn.updateQuestion(button, setCriteria);
-        /*
-        if (button === "anterior") {
-          console.log("Button 1 clicked!");
-          previous(criteria.qIndex - 1);
-        } else if (button ==="siguiente") {
-          console.log("Button 2 clicked!");
-          next(criteria.qIndex + 1);
-        }*/
       } catch (error) {
         console.error(error);
       }
@@ -76,10 +48,15 @@ export function B4(props) {
   return (
     <div className="tac-form">
       <Form onSubmit={formik.handleSubmit}>
-        <h2>B.4. Tamaño de la empresa en número de empleados </h2>
+        <Header as="h3" dividing>
+          <Header.Content>
+            B4.- Tiempo de permanencia en el negocio
+          </Header.Content>
+          <Header.Subheader>Seleccione una opcion.</Header.Subheader>
+        </Header>
         <Form.Group grouped>
           <Form.Field
-            label="MiPYMEc(< 10 empleados)"
+            label="0-5 años"
             control="input"
             type="radio"
             name="qRes"
@@ -90,41 +67,41 @@ export function B4(props) {
               formik.setFieldValue("Res1", data.value);
             }}*/
             onChange={formik.handleChange}
-            value="A"
-            checked={formik.values.qRes === "A"}
+            value="0_5"
+            checked={formik.values.qRes === "0_5"}
             error={formik.errors.qRes}
           />
           <Form.Field
-            label="PYME (11-50 empleados)"
+            label="6-10 años"
             control="input"
             type="radio"
             name="qRes"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="B"
-            checked={formik.values.qRes === "B"}
+            value="6_10"
+            checked={formik.values.qRes === "6_10"}
             error={formik.errors.qRes}
           />
           <Form.Field
-            label="Mediana empresa (51-150 empleados)"
+            label="11-15 años"
             control="input"
             type="radio"
             name="qRes"
             //id="qRes3"
             onChange={formik.handleChange}
-            value="C"
-            checked={formik.values.qRes === "C"}
+            value="11_15"
+            checked={formik.values.qRes === "11_15"}
             error={formik.errors.qRes}
           />
           <Form.Field
-            label="Gran empresa (> 150 empleados)"
+            label="> 16 años"
             control="input"
             type="radio"
             name="qRes"
             //id="qRes4"
             onChange={formik.handleChange}
-            value="D"
-            checked={formik.values.qRes === "D"}
+            value="> 16"
+            checked={formik.values.qRes === "> 16"}
             error={formik.errors.qRes}
           />
         </Form.Group>

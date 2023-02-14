@@ -1,5 +1,13 @@
-import React, { useState } from "react";
-import { Input, Label, Form, Radio, Checkbox } from "semantic-ui-react";
+import React, { useEffect, useState } from "react";
+import {
+  Input,
+  Label,
+  Form,
+  Radio,
+  Checkbox,
+  Divider,
+  Message,
+} from "semantic-ui-react";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_4.form";
@@ -18,26 +26,6 @@ export function C1_4(props) {
   const [button, setButton] = useState(null);
 
   console.log("qData", qData);
-
-  /*
-  const next = (i) => {
-    if (i > criteria.survey[sID].questions.length - 1) {
-      i = criteria.survey[sID].questions.length - 1;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-
-  const previous = (i) => {
-    if (i < 0) {
-      i = 0;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-  */
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -64,33 +52,63 @@ export function C1_4(props) {
         }
 
         tn.updateQuestion(button, setCriteria);
-        /*
-        if (button === "anterior") {
-          console.log("Button 1 clicked!");
-          previous(criteria.qIndex - 1);
-        } else if (button === "siguiente") {
-          console.log("Button 2 clicked!");
-          next(criteria.qIndex + 1);
-        }*/
       } catch (error) {
         console.error(error);
       }
     },
   });
 
+  const [percentage, setPercentage] = useState(0);
+  useEffect(() => {
+    let sum = 0;
+    Object.entries(formik.values).forEach(([key, value]) => {
+      if (!(key === "otros_costos")) {
+        sum = sum + Number(value);
+      }
+    });
+
+    /*
+    let sum = Object.values(formik.values).reduce(function (
+      accumulator,
+      curValue
+    ) {
+      return accumulator + Number(curValue);
+    },
+    0);
+    */
+
+    //console.log("formik.values", formik.values);
+    setPercentage(sum);
+  }, [formik.values]);
+
   return (
-    <div className="tac-form">
+    <div className="c1_4">
       <Form onSubmit={formik.handleSubmit}>
         <h3>
           C.1.4. ¿Cuáles son sus principales costos de operación? (porcentaje
           aproximado)
         </h3>
+        {/*
+        <Form.Group widths="2">
+          <Form.Input fluid label="Combustible" placeholder="00" />
+          <Form.Input fluid label="Personal de conducción" placeholder="00" />
+          <Form.Input
+            fluid
+            label="Administrativos y de servicio al cliente"
+            placeholder="00"
+          />
+          <Form.Input fluid label="Comerciales" placeholder="00" />
+        </Form.Group>
+        */}
         <Form.Group grouped>
           <Form.Field>
             <Input
+              size="mini"
               name="combustible"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.combustible}
@@ -103,9 +121,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="personal_conduccion"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.personal_conduccion}
@@ -118,9 +139,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="administrativos_y_servicio_cliente"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.administrativos_y_servicio_cliente}
@@ -133,9 +157,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="comerciales"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.comerciales}
@@ -148,9 +175,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="financieros_pago_deuda"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.financieros_pago_deuda}
@@ -163,9 +193,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="seguros"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.seguros}
@@ -178,9 +211,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="impuestos"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.impuestos}
@@ -193,9 +229,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="depreciacion_flota_y_otros_activos"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.depreciacion_flota_y_otros_activos}
@@ -208,9 +247,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="costos_ambientales"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.costos_ambientales}
@@ -223,9 +265,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="capacitacion"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.capacitacion}
@@ -238,9 +283,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="alquileres_hipotecas"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.alquileres_hipotecas}
@@ -253,9 +301,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="vigilancia_seguridad"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.vigilancia_seguridad}
@@ -268,9 +319,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="tiempos_muertos"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.tiempos_muertos}
@@ -283,9 +337,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="viaticos_estancias"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.viaticos_estancias}
@@ -298,9 +355,12 @@ export function C1_4(props) {
           </Form.Field>
           <Form.Field>
             <Input
+              size="mini"
               name="otros"
               labelPosition="right"
-              type="text"
+              type="number"
+              min={0}
+              max={100}
               placeholder="00"
               onChange={formik.handleChange}
               value={formik.values.otros}
@@ -311,8 +371,29 @@ export function C1_4(props) {
               <Label basic>Otros (señale cuáles)</Label>
             </Input>
           </Form.Field>
+          <Form.Field
+            label=""
+            control="input"
+            type="text"
+            name="otros_costos"
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value={formik.values.otros_costos}
+            error={formik.errors.otros_costos}
+          />
         </Form.Group>
-
+        <Divider />
+        {percentage > 100 ? (
+          <Message
+            negative
+            icon="percent"
+            header="Porcentaje exedido"
+            content={"Suma actual " + percentage}
+          />
+        ) : (
+          <Message info icon="percent" header={"Suma actual " + percentage} />
+        )}
+        <p />
         <NavigationButtons
           setButton={setButton}
           formik={formik}

@@ -7,9 +7,11 @@ export class TacNavigation {
       key: "Introduccion",
       completed: false,
       active: false,
-      icon: "truck",
-      title: "Introduccion",
-      description: "Choose your shipping options",
+      icon: "file alternate outline",
+      title: "Introducción",
+      description: "",
+      description_large:
+        "Conocer los retos claves que enfrenta el Transport Automotor de Carga (TAC)",
       questions: ["A1", "A2"],
     },
     {
@@ -17,29 +19,53 @@ export class TacNavigation {
       key: "Identificacion",
       completed: false,
       active: false,
-      icon: "payment",
-      title: "Identificacion",
-      description: "Enter billing information",
-      questions: ["B1", "B2", "B3", "B4"],
+      icon: "address card outline",
+      title: "Identificación",
+      description: "",
+      description_large: "Identificar el perfil de la empresa",
+      questions: ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8"],
     },
     {
       id: 2,
       key: "Operador",
       completed: false,
       active: false,
-      icon: "truck",
+      icon: "dolly flatbed",
       title: "Operador",
-      description: "Enter billing information",
-      questions: ["C1_1", "C1_2", "C1_3", "C1_4"],
+      description: "",
+      description_large:
+        "Identificar las operaciones que realiza y los retos que enfrenta",
+      questions: [
+        "C1.1",
+        "C1.2",
+        "C1.3",
+        "C1.4",
+        "C1.5",
+        "C1.6",
+        "C1_7",
+        "C1.8",
+        "C1.9",
+        "C2.1",
+        "C2.2",
+        "C3.1",
+        "C3.2",
+        "C4.1",
+        "C4.2",
+        "C4.3",
+        "C4.4",
+        "C5.1",
+      ],
     },
     {
       id: 3,
       key: "Usuario",
       completed: false,
       active: false,
-      icon: "user",
+      icon: "user circle outline",
       title: "Usuario",
-      description: "Enter billing information",
+      description: "",
+      description_large:
+        "Conocer su opinión sobre algunas consideraciones particulares de cada reto",
       questions: ["D1"],
     },
   ];
@@ -134,15 +160,17 @@ export class TacNavigation {
   }
 
   updateQuestion(button, setCriteria) {
-    console.log("button", button);
+    console.log("updateQuestion button", button);
 
     if (button === "anterior") {
       setCriteria((prev) => {
         const { sID, qIndex } = prev;
-        return {
+        const newCriteria = {
           ...prev,
           ...this.previous({ sID, qIndex }),
         };
+        console.log("newCriteria", newCriteria);
+        return newCriteria;
       });
     } else if (button === "siguiente") {
       setCriteria((prev) => {
@@ -163,5 +191,16 @@ export class TacNavigation {
       total: this.survey[sID].questions.length,
     };
     return progress;
+  }
+
+  getCurrentHeader(criteria) {
+    let { sID, qIndex } = criteria;
+
+    const header = {
+      key: this.survey[sID].title,
+      icon: this.survey[sID].icon,
+      description_large: this.survey[sID].description_large,
+    };
+    return header;
   }
 }

@@ -16,51 +16,56 @@ const tn = new TacNavigation();
 
 const initialRetos = [
   {
-    text: "La empresarialización del sector y la persistencia de la informalidad y la atomización",
+    title:
+      "La empresarialización del sector y la persistencia de la informalidad y la atomización",
     order: 1,
   },
   {
-    text: "Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
+    title:
+      "Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
     order: 2,
   },
   {
-    text: "Las barreras de inclusión y la equidad de género en el TAC",
+    title: "Las barreras de inclusión y la equidad de género en el TAC",
     order: 3,
   },
   {
-    text: "La sostenibilidad financiera y rentabilización de las operaciones",
+    title: "La sostenibilidad financiera y rentabilización de las operaciones",
     order: 4,
   },
   {
-    text: "El fortalecimiento de la profesionalización y capacitación",
+    title: "El fortalecimiento de la profesionalización y capacitación",
     order: 5,
   },
   {
-    text: "La situación de la accidentabilidad en el servicio TAC",
+    title: "La situación de la accidentabilidad en el servicio TAC",
     order: 6,
   },
   {
-    text: "El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
+    title:
+      "El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
     order: 7,
   },
   {
-    text: "Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
+    title:
+      "Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
     order: 8,
   },
   {
-    text: "Las energías verdes y la adaptación al cambio climático de la flota TAC",
+    title:
+      "Las energías verdes y la adaptación al cambio climático de la flota TAC",
     order: 9,
   },
   {
-    text: "El contexto de seguridad (física, cyber, etc.)",
+    title: "El contexto de seguridad (física, cyber, etc.)",
     order: 10,
   },
   {
-    text: "Una institucionalidad incompleta e inadecuada",
+    title: "Una institucionalidad incompleta e inadecuada",
     order: 11,
   },
   {
-    text: "La provisión de infraestructura de soporte a la operativa del TAC",
+    title: "La provisión de infraestructura de soporte a la operativa del TAC",
     order: 12,
   },
 ];
@@ -206,7 +211,7 @@ export function A1(props) {
                               draggableProvided.draggableProps.style
                             )}
                           >
-                            {reto.order + ".- " + reto.text}
+                            <strong>{reto.order + ".- "}</strong> {reto.title}
                           </li>
                         )}
                       </Draggable>

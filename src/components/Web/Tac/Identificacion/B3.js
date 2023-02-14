@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "semantic-ui-react";
+import { Form, Header } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B3.form";
@@ -17,26 +17,6 @@ export function B3(props) {
   const [button, setButton] = useState(null);
 
   console.log(qData);
-
-  /*
-  const next = (i) => {
-    if (i > criteria.survey[sID].questions.length - 1) {
-      i = criteria.survey[sID].questions.length - 1;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-
-  const previous = (i) => {
-    if (i < 0) {
-      i = 0;
-    }
-    setCriteria({ ...criteria, qIndex: i });
-    console.log(i);
-    console.log(criteria.qIndex);
-  };
-*/
 
   const formik = useFormik({
     initialValues: initialValues(qData),
@@ -61,15 +41,6 @@ export function B3(props) {
         }
 
         tn.updateQuestion(button, setCriteria);
-        /*
-        if (button === 1) {
-          console.log("Button 1 clicked!");
-          previous(criteria.qIndex - 1);
-        } else if (button === 2) {
-          console.log("Button 2 clicked!");
-          next(criteria.qIndex + 1);
-        }
-        */
       } catch (error) {
         console.error(error);
       }
@@ -80,7 +51,10 @@ export function B3(props) {
   return (
     <div className="tac-form">
       <Form onSubmit={formik.handleSubmit}>
-        <h2>B.3. Rango de ventas anuales</h2>
+        <Header as="h3" dividing>
+          <Header.Content>B3.- Rango de ventas anuales</Header.Content>
+          <Header.Subheader>Seleccione una opcion.</Header.Subheader>
+        </Header>
         <Form.Group grouped>
           <Form.Field
             label="$0-$1,000"
@@ -89,41 +63,41 @@ export function B3(props) {
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="A"
-            checked={formik.values.B3.includes("A")}
+            value="$0-$1,000"
+            checked={formik.values.B3.includes("$0-$1,000")}
             error={formik.errors.qRes}
           />
           <Form.Field
-            label="$1,001-$10,0000"
+            label="$1,001-$10,000"
             control="input"
             type="checkbox"
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="B"
-            checked={formik.values.B3.includes("B")}
+            value="$1,001-$10,000"
+            checked={formik.values.B3.includes("$1,001-$10,000")}
             error={formik.errors.qRes}
           />
           <Form.Field
-            label="$1,001-$10,0000"
+            label="$10,001-$100,000"
             control="input"
             type="checkbox"
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C"
-            checked={formik.values.B3.includes("C")}
+            value="$10,001-$100,000"
+            checked={formik.values.B3.includes("$10,001-$100,000")}
             error={formik.errors.qRes}
           />
           <Form.Field
-            label="$1,001-$10,0000"
+            label="$100,001-$1,000,0000"
             control="input"
             type="checkbox"
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="D"
-            checked={formik.values.B3.includes("D")}
+            value="$100,001-$1,000,0000"
+            checked={formik.values.B3.includes("$100,001-$1,000,0000")}
             error={formik.errors.qRes}
           />
         </Form.Group>

@@ -1,0 +1,23 @@
+@import "~/src/scss/index.scss";
+
+.c4_1 {
+  &__table-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //width: 90%;
+
+    th {
+      background-color: $item-selected !important;
+    }
+  }
+
+  input[type="number"] {
+    width: 100px !important;
+  }
+
+  /*
+  .ui.input [type="text"] {
+    width: 14px;
+  }*/
+}

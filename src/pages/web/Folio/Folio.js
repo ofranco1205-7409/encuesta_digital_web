@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Segment } from "semantic-ui-react";
+import { Segment, Icon } from "semantic-ui-react";
 import { FolioForm } from "../../../components/Web/Tac";
-import { Icon } from "../../../assets";
+//import { Icon } from "../../../assets";
 import "./Folio.scss";
 
 export function Folio() {
   return (
     <div className="auth">
-      <Icon.LogoWhite className="logo" />
+      <Icon name="mail" size="massive" />
 
       <Segment>
         <h1>Contestar encuesta</h1>

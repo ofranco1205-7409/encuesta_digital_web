@@ -1,6 +1,7 @@
 @import "~/src/scss/index.scss";
 
 .encuestaTac {
+  //background-color: red;
   margin-bottom: 5px;
 
   .ui.massive.segment,
@@ -11,7 +12,8 @@
   &__header {
     width: 100%;
     min-width: fit-content;
-    border-bottom: 5px solid gray;
+    border-bottom: 3px solid gray;
+    margin-bottom: 20px !important;
   }
   &__tac {
     display: flex;
@@ -27,6 +29,16 @@
     &__left {
       //background-color: $background-dark-web;
       padding: 10px;
+
+      .ui.steps {
+        border: 2px solid #dedede;
+      }
+
+      .ui.steps .step.active {
+        //background: #f3f4f5;
+        // background:  #bbb;
+        background: #dedede;
+      }
     }
 
     &__right {
@@ -54,7 +66,7 @@
 */
 @media screen and (max-width: 500px) {
   .encuestaTac {
-    &__.tac {
+    &__tac {
       &__left {
         display: none;
       }

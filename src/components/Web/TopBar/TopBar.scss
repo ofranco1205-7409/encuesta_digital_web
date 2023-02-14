@@ -74,11 +74,20 @@
   }
 }
 
+@media screen and (max-width: 670px) {
+  .top-bar {
+    height: 120px;
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+
 @media screen and (max-width: 500px) {
   .top-bar {
     height: 120px;
     h1 {
-      font-size: 45px;
+      font-size: 35px;
     }
   }
 }

@@ -42,10 +42,10 @@ export function RetoItem(props) {
 
   return (
     <>
-      <div className="menu-item">
-        <div className="menu-item__info">
-          <span className="menu-item__info-title">
-            {reto.order + ".- " + reto.title}
+      <div className="reto-item">
+        <div className="reto-item__info">
+          <span className="reto-item__info-title">
+            <strong>{reto.order + ".- "}</strong> {reto.title}
           </span>
         </div>
 

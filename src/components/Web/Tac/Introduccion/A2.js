@@ -11,11 +11,11 @@ import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./A2.form";
 import { NavigationButtons } from "../NavigationButtons";
-import "./A2.scss";
 import { BasicModal } from "../../../Shared";
 import { RetoForm } from "./RetoForm";
 import { ListReto } from "./ListReto";
 import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
+import "./A2.scss";
 
 const tacController = new Tac();
 const tn = new TacNavigation();

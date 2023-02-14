@@ -19,7 +19,7 @@ export function initialValues(data) {
     viaticos_estancias: "",
     otros: "",
   }; */
-  console.log("initialValues", data);
+  //console.log("initialValues", data.qRes);
   return {
     combustible: data?.qRes?.combustible || "",
     personal_conduccion: data?.qRes?.personal_conduccion || "",
@@ -38,6 +38,7 @@ export function initialValues(data) {
     tiempos_muertos: data.qRes?.tiempos_muertos || "",
     viaticos_estancias: data.qRes?.viaticos_estancias || "",
     otros: data.qRes?.otros || "",
+    otros_costos: data.qRes?.otros_costos || "",
   };
 }
 
