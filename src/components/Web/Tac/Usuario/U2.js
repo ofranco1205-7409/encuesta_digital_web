@@ -4,71 +4,80 @@ import { Divider, Form, Header, Loader, Segment } from "semantic-ui-react";
 import { size, map } from "lodash";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
-import { initialValues, validationSchema } from "./A1.form";
+import { initialValues, validationSchema } from "./U2.form";
 import { NavigationButtons } from "../NavigationButtons";
-import "./A1.scss";
+import "./U2.scss";
 //import { BasicModal } from "../../../Shared";
 //import { RetoForm } from "./RetoForm";
-import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
+import { TacNavigation } from "../TacNavigation";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
 
 const initialRetos = [
   {
-    title:
-      "[1] La empresarialización del sector y la persistencia de la informalidad y la atomización",
+    title: "{1} Almacenamiento",
     order: 1,
   },
   {
-    title:
-      "[2] Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
+    title: "{2} Planificación y gestión de inventario",
     order: 2,
   },
   {
-    title: "[3] Las barreras de inclusión y la equidad de género en el TAC",
+    title: "{3} Operaciones de transporte",
     order: 3,
   },
   {
-    title:
-      "[4] La sostenibilidad financiera y rentabilización de las operaciones",
+    title: "{4} Negociación con proveedores",
     order: 4,
   },
   {
-    title: "[5] El fortalecimiento de la profesionalización y capacitación",
+    title: "{5} Coordinación de facturación a clientes",
     order: 5,
   },
   {
-    title: "[6] La situación de la accidentabilidad en el servicio TAC",
+    title: "{6} Procesamiento de órdenes de compra",
     order: 6,
   },
   {
-    title:
-      "[7] El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
+    title: "{7} Administración de la flota terrestre",
     order: 7,
   },
   {
-    title:
-      "[8] Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
+    title: "{8} Tecnologías de la información",
     order: 8,
   },
   {
-    title:
-      "[9] Las energías verdes y la adaptación al cambio climático de la flota TAC",
+    title: "{9} Planificación de la producción",
     order: 9,
   },
   {
-    title: "[10] El contexto de seguridad (física, cyber, etc.)",
+    title: "{10} Logística inversa/devoluciones",
     order: 10,
   },
   {
-    title: "[11] Una institucionalidad incompleta e inadecuada",
+    title: "{11} Selección de proveedores de insumos",
     order: 11,
   },
   {
-    title:
-      "[12] La provisión de infraestructura de soporte a la operativa del TAC",
+    title: "{12} Análisis de mercado/demandas",
     order: 12,
+  },
+  {
+    title: "{13} Definición y coordinación política de precios",
+    order: 13,
+  },
+  {
+    title: "{14} Diseño de la red de distribución",
+    order: 14,
+  },
+  {
+    title: "{15} Gestión de trámites institucionales",
+    order: 15,
+  },
+  {
+    title: "{16} Pago de tasas e impuestos",
+    order: 16,
   },
 ];
 
@@ -93,7 +102,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   ...draggableStyle,
 });
 
-export function A1(props) {
+export function U2(props) {
   //const [tasks, setTasks] = useState(initialRetos);
   const [retos, setRetos] = useState(null);
 
@@ -156,7 +165,7 @@ export function A1(props) {
 
   return (
     <>
-      <div className="a1">
+      <div className="u2">
         <DragDropContext
           onDragEnd={(result) => {
             const { source, destination } = result;
@@ -175,15 +184,14 @@ export function A1(props) {
             );
           }}
         >
-          <div className="a1__retos">
+          <div className="u2__retos">
             <Header as="h3" dividing>
               <Header.Content>
-                A1.- Ordene los siguientes retos claves para el Transporte
-                Automotor de Carga (TAC)
+                U2.- Ordene por importancia (1 más, 10 menos) los procesos
+                logísticos claves para su negocio
               </Header.Content>
               <Header.Subheader>
-                Click y sin soltar, arrastre a la que considere su posición
-                correcta en la lista
+                Click y sin soltar, arrastre a la posición adecuada en la lista
               </Header.Subheader>
             </Header>
 
@@ -192,7 +200,7 @@ export function A1(props) {
                 <ul
                   {...droppableProvided.droppableProps}
                   ref={droppableProvided.innerRef}
-                  className="a1__retos__task-container"
+                  className="u2__retos__task-container"
                 >
                   {retos.map((reto, index) => {
                     //console.log("reto", reto);
@@ -207,7 +215,7 @@ export function A1(props) {
                             {...draggableProvided.draggableProps}
                             ref={draggableProvided.innerRef}
                             {...draggableProvided.dragHandleProps}
-                            className="a1__retos__task-container__task-item"
+                            className="d__retos__task-container__task-item"
                             style={getItemStyle(
                               snapshot.isDragging,
                               draggableProvided.draggableProps.style

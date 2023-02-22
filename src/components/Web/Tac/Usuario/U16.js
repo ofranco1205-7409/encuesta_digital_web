@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Form, Divider, Header } from "semantic-ui-react";
+import { Form, Header } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
-import { initialValues, validationSchema } from "./C4_2.form";
+import { initialValues, validationSchema } from "./U16.form";
 import { NavigationButtons } from "../NavigationButtons";
-//import "./C2_1.scss";
 import { TacNavigation } from "../TacNavigation";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
 
-export function C4_2(props) {
+export function U16(props) {
   const { criteria, setCriteria, qData } = props;
 
-  const { folio, sID, qID } = criteria;
+  const { sID } = criteria;
 
   const [button, setButton] = useState(null);
 
@@ -24,12 +23,13 @@ export function C4_2(props) {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValue) => {
+      console.log("onSubmit");
       console.log("formValue", formValue);
       try {
         const newData = {
-          folio: folio,
+          folio: qData.folio,
           qID: qData.qID,
-          qRes: { ...formValue },
+          qRes: formValue.qRes,
         };
         console.log(newData);
         if (qData.qRes) {
@@ -47,44 +47,42 @@ export function C4_2(props) {
     },
   });
 
+  console.log(formik.values);
   return (
-    <div className="c4_2">
+    <div className="u16">
       <Form onSubmit={formik.handleSubmit}>
         <Header as="h3" dividing>
           <Header.Content>
-            C4.2.- Promedio de km mensuales recorridos del vehículo tipo
+            U16.- ¿Considera que la oferta formativa actual cubre las
+            necesidades del sector?
           </Header.Content>
-          <Header.Subheader>Complete la información.</Header.Subheader>
+          <Header.Subheader>Seleccione SI/NO</Header.Subheader>
         </Header>
-
         <Form.Group grouped>
           <Form.Field
-            label="Total de km/mes recorridos por unidad de carga"
+            label="Si"
             control="input"
-            type="number"
-            name="km_recorridos"
-            min={0}
-            placeholder="0"
-            //id="qRes2"
+            type="radio"
+            name="qRes"
+            //id="qRes1
             onChange={formik.handleChange}
-            value={formik.values.km_recorridos}
-            //checked={formik.values.qRes === "6_10"}
-            error={formik.errors.km_recorridos}
+            value="U16_1"
+            checked={formik.values.qRes === "U16_1"}
+            error={formik.errors.qRes}
           />
           <Form.Field
-            label="Dato no disponible"
+            label="No"
             control="input"
-            type="checkbox"
-            name="C4_2"
+            type="radio"
+            name="qRes"
             //id="qRes2"
             onChange={formik.handleChange}
-            value={false}
-            checked={formik.values.C4_2}
-            error={formik.errors.C4_2}
+            value="U16_2"
+            checked={formik.values.qRes === "U16_2"}
+            error={formik.errors.qRes}
           />
         </Form.Group>
 
-        <Divider />
         <NavigationButtons
           setButton={setButton}
           formik={formik}

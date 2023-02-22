@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Form, Divider, Header } from "semantic-ui-react";
+import { Form, Header } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
-import { initialValues, validationSchema } from "./C4_2.form";
+import { initialValues, validationSchema } from "./U7.form";
 import { NavigationButtons } from "../NavigationButtons";
-//import "./C2_1.scss";
 import { TacNavigation } from "../TacNavigation";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
 
-export function C4_2(props) {
+export function U7(props) {
   const { criteria, setCriteria, qData } = props;
 
-  const { folio, sID, qID } = criteria;
+  const { sID } = criteria;
 
   const [button, setButton] = useState(null);
 
@@ -24,12 +23,13 @@ export function C4_2(props) {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValue) => {
+      console.log("onSubmit");
       console.log("formValue", formValue);
       try {
         const newData = {
-          folio: folio,
+          folio: qData.folio,
           qID: qData.qID,
-          qRes: { ...formValue },
+          qRes: formValue.U7,
         };
         console.log(newData);
         if (qData.qRes) {
@@ -47,44 +47,63 @@ export function C4_2(props) {
     },
   });
 
+  console.log(formik.values);
   return (
-    <div className="c4_2">
+    <div className="u7">
       <Form onSubmit={formik.handleSubmit}>
         <Header as="h3" dividing>
-          <Header.Content>
-            C4.2.- Promedio de km mensuales recorridos del vehículo tipo
-          </Header.Content>
-          <Header.Subheader>Complete la información.</Header.Subheader>
+          <Header.Content>U7.- Medición de tiempos</Header.Content>
+          <Header.Subheader>
+            Marque todas las opciones que apliquen
+          </Header.Subheader>
         </Header>
-
         <Form.Group grouped>
           <Form.Field
-            label="Total de km/mes recorridos por unidad de carga"
-            control="input"
-            type="number"
-            name="km_recorridos"
-            min={0}
-            placeholder="0"
-            //id="qRes2"
-            onChange={formik.handleChange}
-            value={formik.values.km_recorridos}
-            //checked={formik.values.qRes === "6_10"}
-            error={formik.errors.km_recorridos}
-          />
-          <Form.Field
-            label="Dato no disponible"
+            label="Se miden separadamente tiempos de carga y descarga"
             control="input"
             type="checkbox"
-            name="C4_2"
+            name="U7"
             //id="qRes2"
             onChange={formik.handleChange}
-            value={false}
-            checked={formik.values.C4_2}
-            error={formik.errors.C4_2}
+            value="U7_1"
+            checked={formik.values.U7.includes("U7_1")}
+            error={formik.errors.U7}
+          />
+          <Form.Field
+            label="Se miden conjuntamente tiempos de carga y descarga"
+            control="input"
+            type="checkbox"
+            name="U7"
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value="U7_2"
+            checked={formik.values.U7.includes("U7_2")}
+            error={formik.errors.U7}
+          />
+          <Form.Field
+            label="Se miden los tiempos de espera"
+            control="input"
+            type="checkbox"
+            name="U7"
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value="U7_3"
+            checked={formik.values.U7.includes("U7_3")}
+            error={formik.errors.U7}
+          />
+          <Form.Field
+            label="No se realizan mediciones de tiempos"
+            control="input"
+            type="checkbox"
+            name="U7"
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value="U7_4"
+            checked={formik.values.U7.includes("U7_4")}
+            error={formik.errors.U7}
           />
         </Form.Group>
 
-        <Divider />
         <NavigationButtons
           setButton={setButton}
           formik={formik}

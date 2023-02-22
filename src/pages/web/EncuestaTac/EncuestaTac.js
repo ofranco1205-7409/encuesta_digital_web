@@ -22,8 +22,8 @@ export function EncuestaTac() {
 
   const [qData, setqData] = useState(null);
 
-  const sID_inicial = 2;
-  const qIndex_inicial = 17;
+  const sID_inicial = 3;
+  const qIndex_inicial = 14;
   const qID_inicial = tn.qID({ sID: sID_inicial, qIndex: qIndex_inicial });
   const [criteria, setCriteria] = useState({
     folio: folio._id,

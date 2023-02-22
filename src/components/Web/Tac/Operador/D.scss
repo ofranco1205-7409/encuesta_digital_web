@@ -1,0 +1,48 @@
+@import "~/src/scss/index.scss";
+
+.d {
+  &__add {
+  }
+  &__retos {
+    //background-color: red;
+    &__task-container {
+      //border: 1px dotted pink;
+      min-width: 100% !important;
+
+      margin: 0;
+      list-style: none;
+      padding: 1px;
+      //border-radius: 5px;
+      font-size: 1rem;
+
+      display: inline-flex;
+      flex-direction: column;
+
+      li:hover {
+        //background: #dedede;
+        background: #dedede;
+      }
+
+      &__task-item {
+        color: black;
+        //box-shadow: 0px 2px 4px #4a4c4e;
+        //border-radius: 5px;
+        padding: 5px 5px;
+        background-color: whitesmoke;
+        text-align: left;
+        margin: 0px;
+        border-bottom: 1px dotted #bbb;
+      }
+
+      &__task-item:active {
+        outline: none;
+        //border: 2px solid #4a9af5;
+        background-color: #dedede;
+      }
+    }
+    > h2 {
+      //width: 87%;
+      //border: 1px dotted pink;
+    }
+  }
+}

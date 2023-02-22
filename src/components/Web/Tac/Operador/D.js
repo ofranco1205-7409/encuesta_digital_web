@@ -4,71 +4,56 @@ import { Divider, Form, Header, Loader, Segment } from "semantic-ui-react";
 import { size, map } from "lodash";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
-import { initialValues, validationSchema } from "./A1.form";
+import { initialValues, validationSchema } from "./D.form";
 import { NavigationButtons } from "../NavigationButtons";
-import "./A1.scss";
+import "./D.scss";
 //import { BasicModal } from "../../../Shared";
 //import { RetoForm } from "./RetoForm";
-import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
+import { TacNavigation } from "../TacNavigation";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
 
 const initialRetos = [
   {
-    title:
-      "[1] La empresarialización del sector y la persistencia de la informalidad y la atomización",
+    title: "{1} Mercado de servicio y precios",
     order: 1,
   },
   {
-    title:
-      "[2] Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
+    title: "{2} Altos costos operativos",
     order: 2,
   },
   {
-    title: "[3] Las barreras de inclusión y la equidad de género en el TAC",
+    title: "{3} Modelo de gestión empresarial deficiente",
     order: 3,
   },
   {
-    title:
-      "[4] La sostenibilidad financiera y rentabilización de las operaciones",
+    title: "{4} Dificultades operacionales",
     order: 4,
   },
   {
-    title: "[5] El fortalecimiento de la profesionalización y capacitación",
+    title: "{5} Modelo de gestión de personal",
     order: 5,
   },
   {
-    title: "[6] La situación de la accidentabilidad en el servicio TAC",
+    title: "{6} Dificultades de financiación",
     order: 6,
   },
   {
-    title:
-      "[7] El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
+    title: "{7} Problemas con el Sector Público",
     order: 7,
   },
   {
-    title:
-      "[8] Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
+    title: "{8} Bajo prestigio profesional del TAC entre la población",
     order: 8,
   },
   {
-    title:
-      "[9] Las energías verdes y la adaptación al cambio climático de la flota TAC",
+    title: "{9} Riesgos de seguridad en el recorrido",
     order: 9,
   },
   {
-    title: "[10] El contexto de seguridad (física, cyber, etc.)",
+    title: "{10} Otros (especifique cuáles)",
     order: 10,
-  },
-  {
-    title: "[11] Una institucionalidad incompleta e inadecuada",
-    order: 11,
-  },
-  {
-    title:
-      "[12] La provisión de infraestructura de soporte a la operativa del TAC",
-    order: 12,
   },
 ];
 
@@ -93,7 +78,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   ...draggableStyle,
 });
 
-export function A1(props) {
+export function D(props) {
   //const [tasks, setTasks] = useState(initialRetos);
   const [retos, setRetos] = useState(null);
 
@@ -156,7 +141,7 @@ export function A1(props) {
 
   return (
     <>
-      <div className="a1">
+      <div className="d">
         <DragDropContext
           onDragEnd={(result) => {
             const { source, destination } = result;
@@ -175,15 +160,14 @@ export function A1(props) {
             );
           }}
         >
-          <div className="a1__retos">
+          <div className="d__retos">
             <Header as="h3" dividing>
               <Header.Content>
-                A1.- Ordene los siguientes retos claves para el Transporte
-                Automotor de Carga (TAC)
+                D.- Ordene de mayor a menor sus 10 principales desafios (1 es el
+                más importante)
               </Header.Content>
               <Header.Subheader>
-                Click y sin soltar, arrastre a la que considere su posición
-                correcta en la lista
+                Ordene de más a menos importante los 10 principales desafios
               </Header.Subheader>
             </Header>
 
@@ -192,7 +176,7 @@ export function A1(props) {
                 <ul
                   {...droppableProvided.droppableProps}
                   ref={droppableProvided.innerRef}
-                  className="a1__retos__task-container"
+                  className="d__retos__task-container"
                 >
                   {retos.map((reto, index) => {
                     //console.log("reto", reto);
@@ -207,7 +191,7 @@ export function A1(props) {
                             {...draggableProvided.draggableProps}
                             ref={draggableProvided.innerRef}
                             {...draggableProvided.dragHandleProps}
-                            className="a1__retos__task-container__task-item"
+                            className="d__retos__task-container__task-item"
                             style={getItemStyle(
                               snapshot.isDragging,
                               draggableProvided.draggableProps.style

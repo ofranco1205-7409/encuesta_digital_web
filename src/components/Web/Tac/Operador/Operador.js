@@ -18,6 +18,19 @@ import {
   C4_3,
   C4_4,
   C5_1,
+  C5_2,
+  C6,
+  C7_1,
+  C7_2,
+  C7_3,
+  C8,
+  C9_1,
+  C9_2,
+  C10,
+  C11_1,
+  C11_2,
+  C12,
+  D,
 } from "./";
 
 export function Operador(props) {
@@ -61,31 +74,31 @@ export function Operador(props) {
       ) : criteria.qIndex === 17 ? (
         <C5_1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 18 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C5_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 19 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C6 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 20 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C7_1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 21 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C7_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 22 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C7_3 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 23 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C8 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 24 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C9_1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 25 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C9_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 26 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C10 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 27 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C11_1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 28 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C11_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 29 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <C12 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 30 ? (
-        <C3_2 criteria={criteria} setCriteria={setCriteria} qData={qData} />
+        <D criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : (
         <h2>Error: No se encontro pregunta</h2>
       )}

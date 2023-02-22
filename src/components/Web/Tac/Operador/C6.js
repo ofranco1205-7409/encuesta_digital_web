@@ -1,74 +1,63 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { Divider, Form, Header, Loader, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Form,
+  Header,
+  Icon,
+  Loader,
+  Segment,
+} from "semantic-ui-react";
 import { size, map } from "lodash";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
-import { initialValues, validationSchema } from "./A1.form";
+import { initialValues, validationSchema } from "./C6.form";
 import { NavigationButtons } from "../NavigationButtons";
-import "./A1.scss";
+import "./C6.scss";
 //import { BasicModal } from "../../../Shared";
 //import { RetoForm } from "./RetoForm";
-import { TacNavigation } from "../../../../components/Web/Tac/TacNavigation";
+import { TacNavigation } from "../TacNavigation";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
 
 const initialRetos = [
   {
-    title:
-      "[1] La empresarialización del sector y la persistencia de la informalidad y la atomización",
+    title: "{1} Flota antigua",
     order: 1,
   },
   {
-    title:
-      "[2] Las condiciones de trabajo en el sector (envejecimiento, escasez de MdO, desprotección)",
+    title: "{2} Bajo mantenimiento de la flota",
     order: 2,
   },
   {
-    title: "[3] Las barreras de inclusión y la equidad de género en el TAC",
+    title: "{3} Prácticas de riesgo de los vehículos particulares",
     order: 3,
   },
   {
-    title:
-      "[4] La sostenibilidad financiera y rentabilización de las operaciones",
+    title: "{4} Poco descanso de los conductores",
     order: 4,
   },
   {
-    title: "[5] El fortalecimiento de la profesionalización y capacitación",
+    title: "{5} Fiscalización deficiente de la polícia",
     order: 5,
   },
   {
-    title: "[6] La situación de la accidentabilidad en el servicio TAC",
+    title: "{6} La inspección ITV no existe/es inadecuada",
     order: 6,
   },
   {
-    title:
-      "[7] El impulso al nearshoring y el aumento de la logística globalizada y digitalizada",
+    title: "{7} Mal estado de las carreteras",
     order: 7,
   },
   {
-    title:
-      "[8] Los nuevos modelos de distribución/consolidación (e-commerce, grupaje, etc.)",
+    title: "{8} Mala señalización de las carreteras",
     order: 8,
   },
   {
-    title:
-      "[9] Las energías verdes y la adaptación al cambio climático de la flota TAC",
+    title: "{9} Otro [especifique]",
     order: 9,
-  },
-  {
-    title: "[10] El contexto de seguridad (física, cyber, etc.)",
-    order: 10,
-  },
-  {
-    title: "[11] Una institucionalidad incompleta e inadecuada",
-    order: 11,
-  },
-  {
-    title:
-      "[12] La provisión de infraestructura de soporte a la operativa del TAC",
-    order: 12,
   },
 ];
 
@@ -93,7 +82,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   ...draggableStyle,
 });
 
-export function A1(props) {
+export function C6(props) {
   //const [tasks, setTasks] = useState(initialRetos);
   const [retos, setRetos] = useState(null);
 
@@ -156,7 +145,7 @@ export function A1(props) {
 
   return (
     <>
-      <div className="a1">
+      <div className="c6">
         <DragDropContext
           onDragEnd={(result) => {
             const { source, destination } = result;
@@ -175,10 +164,10 @@ export function A1(props) {
             );
           }}
         >
-          <div className="a1__retos">
+          <div className="c6__retos">
             <Header as="h3" dividing>
               <Header.Content>
-                A1.- Ordene los siguientes retos claves para el Transporte
+                C6.- Ordene los siguientes retos claves para el Transporte
                 Automotor de Carga (TAC)
               </Header.Content>
               <Header.Subheader>
@@ -207,13 +196,32 @@ export function A1(props) {
                             {...draggableProvided.draggableProps}
                             ref={draggableProvided.innerRef}
                             {...draggableProvided.dragHandleProps}
-                            className="a1__retos__task-container__task-item"
+                            className="c6__retos__task-container__task-item"
                             style={getItemStyle(
                               snapshot.isDragging,
                               draggableProvided.draggableProps.style
                             )}
                           >
-                            <strong>{reto.order + ".- "}</strong> {reto.title}
+                            {String(reto.title).startsWith("{9} Otro") ? (
+                              <div className="reto-item">
+                                <div className="reto-item__info">
+                                  <span className="reto-item__info-title">
+                                    <strong>{reto.order + ".- "}</strong>
+                                    {reto.title}
+                                  </span>
+                                </div>
+                                <div>
+                                  <Button icon primary size="mini">
+                                    <Icon name="pencil" />
+                                  </Button>
+                                </div>
+                              </div>
+                            ) : (
+                              <span>
+                                <strong>{reto.order + ".- "}</strong>
+                                {reto.title}
+                              </span>
+                            )}
                           </li>
                         )}
                       </Draggable>

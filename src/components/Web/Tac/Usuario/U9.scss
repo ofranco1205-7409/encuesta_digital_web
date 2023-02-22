@@ -1,0 +1,14 @@
+@import "~/src/scss/index.scss";
+
+.u9 {
+  .ui.form .field .ui.input,
+  .ui.form .fields .field .ui.input,
+  .ui.form .wide.field .ui.input {
+    width: 60px !important;
+  }
+
+  /*
+  .ui.input [type="text"] {
+    width: 14px;
+  }*/
+}
