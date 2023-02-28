@@ -6,7 +6,7 @@ import "./Folio.scss";
 
 export function Folio() {
   return (
-    <div className="auth">
+    <div className="folio">
       <Icon name="mail" size="massive" />
 
       <Segment>

@@ -41,6 +41,7 @@ export function FolioProvider(props) {
   const setFolioCtx = async (fToken) => {
     try {
       const response = await folioController.decode(fToken);
+      console.warn("response decode(fToken)", response);
       setFolio(response);
     } catch (error) {
       console.error(error);

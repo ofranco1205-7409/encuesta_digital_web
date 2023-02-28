@@ -18,6 +18,28 @@ export function B1(props) {
 
   console.log("qData", qData);
 
+  /*
+  const setiOperUser = (newData) => {
+    const { qRes } = newData;
+
+    let iOperUser = 0;
+
+    if (
+      qRes.includes("301") ||
+      qRes.includes("302") ||
+      qRes.includes("303") ||
+      qRes.includes("304") ||
+      qRes.includes("305") ||
+      qRes.includes("401")
+    ) {
+      iOperUser = 1;
+    } else if (qRes.includes("402")) {
+      iOperUser = -1;
+    }
+
+  };
+  */
+
   const formik = useFormik({
     initialValues: initialValues(qData),
     validationSchema: validationSchema(),
@@ -39,6 +61,8 @@ export function B1(props) {
           console.log("Insert question");
           await tacController.createQuestion(newData);
         }
+
+        // setiOperUser(newData);
 
         tn.updateQuestion(button, setCriteria);
       } catch (error) {

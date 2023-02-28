@@ -32,7 +32,7 @@ export function U16(props) {
           qRes: formValue.qRes,
         };
         console.log(newData);
-        if (qData.qRes) {
+        if (qData.qRes !== null) {
           console.log("Update question");
           await tacController.updateQuestion(newData);
         } else {

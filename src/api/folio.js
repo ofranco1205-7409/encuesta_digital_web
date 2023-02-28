@@ -13,7 +13,40 @@ export class Folio {
         },
         body: JSON.stringify({
           email: data.email,
+          name: data.name,
         }),
+      };
+
+      const response = await fetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 201) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async update(data) {
+    try {
+      const url = `${this.baseApi}/${ENV.API_TAC_ROUTES.FOLIO}`;
+      const params = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        /*
+          {
+          _id: data.folio,
+          email: data.email,
+          email2: data.email2,
+          name: data.name,
+          comments: data.comments,
+          done: data.done,
+        }),
+        */
       };
 
       const response = await fetch(url, params);
@@ -99,6 +132,6 @@ export class Folio {
    *Elimina Folio token de local storage
    */
   removeFolioStorage() {
-    localStorage.removeItem(ENV.JWT.FOLIO);
+    localStorage.removeItem(ENV.JWT.F_TOKEN);
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { ClientLayout } from "../layouts";
 import { Home, Courses, Blog, Post, EncuestaTac, Folio } from "../pages/web";
+import { EndSurvey } from "../pages/web/EndSurvey";
 
 import { useFolio } from "../hooks";
 
@@ -30,6 +31,7 @@ export function WebRouter() {
           <Route path="/blog" element={loadLayout(ClientLayout, Blog)} />
           <Route path="/blog/:path" element={loadLayout(ClientLayout, Post)} />
           <Route path="/tac" element={loadLayout(ClientLayout, EncuestaTac)} />
+          <Route path="/tacEnd/*" element={<EndSurvey />} />
         </>
       )}
     </Routes>

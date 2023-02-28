@@ -4,4 +4,4 @@ export * from "./Survey";
 export * from "./NavigationButtons";
 export * from "./FolioForm";
 export * from "./TacNavigation";
-export * from "./EndSurvey";
+export * from "./FolioEndForm";

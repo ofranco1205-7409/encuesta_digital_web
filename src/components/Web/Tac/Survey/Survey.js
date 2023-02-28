@@ -24,13 +24,13 @@ export function Survey(props) {
             setCriteria={setCriteria}
             qData={qData}
           />
-        ) : criteria.sID === 2 ? (
+        ) : criteria.sID === 2 && criteria.qID.substring(0, 1) !== "U" ? (
           <Operador
             criteria={criteria}
             setCriteria={setCriteria}
             qData={qData}
           />
-        ) : criteria.sID === 3 ? (
+        ) : criteria.sID === 2 ? (
           <Usuario
             criteria={criteria}
             setCriteria={setCriteria}
