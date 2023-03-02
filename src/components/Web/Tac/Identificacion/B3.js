@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header,Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B3.form";
@@ -55,6 +55,14 @@ export function B3(props) {
           <Header.Content>B3.- Rango de ventas anuales</Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.B3 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="$0-$1,000"
@@ -63,9 +71,9 @@ export function B3(props) {
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="$0-$1,000"
-            checked={formik.values.B3.includes("$0-$1,000")}
-            error={formik.errors.qRes}
+            value="B3_1"
+            checked={formik.values.B3.includes("B3_1")}
+            //error={formik.errors.B3}
           />
           <Form.Field
             label="$1,001-$10,000"
@@ -74,9 +82,9 @@ export function B3(props) {
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="$1,001-$10,000"
-            checked={formik.values.B3.includes("$1,001-$10,000")}
-            error={formik.errors.qRes}
+            value="B3_2"
+            checked={formik.values.B3.includes("B3_2")}
+            //error={formik.errors.B3}
           />
           <Form.Field
             label="$10,001-$100,000"
@@ -85,9 +93,9 @@ export function B3(props) {
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="$10,001-$100,000"
-            checked={formik.values.B3.includes("$10,001-$100,000")}
-            error={formik.errors.qRes}
+            value="B3_3"
+            checked={formik.values.B3.includes("B3_3")}
+            //error={formik.errors.B3}
           />
           <Form.Field
             label="$100,001-$1,000,0000"
@@ -96,9 +104,9 @@ export function B3(props) {
             name="B3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="$100,001-$1,000,0000"
-            checked={formik.values.B3.includes("$100,001-$1,000,0000")}
-            error={formik.errors.qRes}
+            value="B3_4"
+            checked={formik.values.B3.includes("B3_4")}
+            //error={formik.errors.B3}
           />
         </Form.Group>
 

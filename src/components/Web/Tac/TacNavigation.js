@@ -97,6 +97,7 @@ export class TacNavigation {
     },
   ];
 
+  /*
   survey_usuario = [
     {
       id: 3,
@@ -177,7 +178,7 @@ export class TacNavigation {
       ],
     },
   ];
-
+*/
   /**
    *
    * @param {*} criteria
@@ -194,8 +195,8 @@ export class TacNavigation {
   }
 
   getCriteriaIni(folio) {
-    const sID_ini = 1;
-    const qIndex_ini = 7;
+    const sID_ini = 0;
+    const qIndex_ini = 0;
     const iOperUser_ini = 0;
     const qID_ini =
       sID_ini === 2
@@ -212,73 +213,7 @@ export class TacNavigation {
 
     return criteriaIni;
   }
-  /**
-   *
-   * @param {*} criteria
-   * @returns
-   */
 
-  getIOpeUser(criteria) {
-    let { folio, sID, qIndex } = criteria;
-
-    //-1 Secto publico
-    //0 Operdor
-    //1 Usuario
-    let iOperUser = 0;
-
-    console.error("iOperUser", iOperUser);
-    return iOperUser;
-
-    /*
-    try {
-      console.log("criteria", criteria);
-      const response = await tacController.getQuestions(criteria);
-      const B1 = response[0];
-
-      if (B1) {
-        if (
-          B1.includes("301") ||
-          B1.includes("302") ||
-          B1.includes("303") ||
-          B1.includes("304") ||
-          B1.includes("305") ||
-          B1.includes("401")
-        ) {
-          iOperUser = 1;
-        } else if (B1.includes("402")) {
-          iOperUser = -1;
-        }
-      } else {
-        console.error("No se pudo determinar set de preguntas");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    return iOperUser;
-    */
-  }
-
-  /**
-   *
-   * @param {*} sID
-   * @param {*} qIndex
-   * @returns Identificador qID del sID y qIndex dado
-   */
-  /*
-  getqID(question) {
-    const { sID, qIndex } = question;
-    const iOpeUser = this.getIndexOpeUser(question);
-
-    console.log("question", question);
-
-    const qID = this.survey[sID].questions[iOpeUser][qIndex];
-
-    console.log("qID", qID);
-
-    return qID;
-  }
-*/
   /**
    *
    * @param q = {sID, qIndex}
@@ -287,18 +222,7 @@ export class TacNavigation {
   next(criteria) {
     let { folio, sID, qIndex, iOperUser } = criteria;
 
-    console.log("next ini", criteria);
-
-    if (sID === 1 && qIndex === 7) {
-      iOperUser = this.getIOpeUser(criteria);
-
-      if (iOperUser === -1) {
-        //Finaliza sin mas preguntas
-        iOperUser = 2;
-        sID = 2;
-        qIndex = this.survey[sID].questions[iOperUser].length;
-      }
-    }
+    console.log("next ini criteria", criteria);
 
     qIndex++;
 
@@ -307,8 +231,9 @@ export class TacNavigation {
       if (qIndex > this.survey[sID].questions[iOperUser].length - 1) {
         //TODO: Redirigir a pantalla final
         console.error("No hay mas preguntas");
-        iOperUser = 2;
+        //iOperUser = 2;
         //qIndex = this.survey[sID].questions[iOperUser].length;
+        sID = 3;
         qIndex = 0;
       }
     } else {
@@ -318,27 +243,17 @@ export class TacNavigation {
         qIndex = 0;
       }
     }
-    /*
-    if (qIndex > this.survey[sID].questions[iOperUser].length - 1) {
-      if (sID < this.survey.length - 1) {
-        sID++;
-        qIndex = 0;
-      } else {
-        console.error("No hay mas preguntas");
-      }
-    }
 
-    iOpeUser = this.getIndexOpeUser({ sID, qIndex });
-    */
     const newQuestion = {
       sID,
       qIndex,
       //qID: this.qID({ sID, qIndex }),
       qID:
-        sID === 2
+        sID === 3
+          ? "END"
+          : sID === 2
           ? this.survey[sID].questions[iOperUser][qIndex]
           : this.survey[sID].questions[qIndex],
-      iOperUser,
     };
     console.log("next fin", newQuestion);
     return newQuestion;
@@ -387,8 +302,8 @@ export class TacNavigation {
     return newQuestion;
   }
 
-  updateQuestion(button, setCriteria) {
-    console.log("updateQuestion button", button);
+  updateQuestion(button, setCriteria, iOperUser) {
+    console.log("updateQuestion", button, iOperUser);
 
     if (button === "anterior") {
       setCriteria((prev) => {
@@ -396,6 +311,7 @@ export class TacNavigation {
         const newCriteria = {
           ...prev,
           ...this.previous(prev),
+          iOpeUser: iOperUser ? iOperUser : 0,
         };
         console.log("newCriteria", newCriteria);
         return newCriteria;
@@ -406,6 +322,8 @@ export class TacNavigation {
         const newCriteria = {
           ...prev,
           ...this.next(prev),
+          iOperUser:
+            typeof iOperUser === "undefined" ? prev.iOperUser : iOperUser,
         };
         console.log("newCriteria", newCriteria);
         return newCriteria;
@@ -427,8 +345,9 @@ export class TacNavigation {
   }
 
   getCurrentHeader(criteria) {
-    let { sID, qIndex } = criteria;
+    let { sID } = criteria;
 
+    sID = sID > 2 ? 2 : sID;
     const header = {
       key: this.survey[sID].title,
       icon: this.survey[sID].icon,

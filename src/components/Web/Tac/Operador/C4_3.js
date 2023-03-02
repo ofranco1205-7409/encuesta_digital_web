@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C4_3.form";
@@ -59,6 +59,14 @@ export function C4_3(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.C4_3 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Línea de crédito bancaria"
@@ -67,9 +75,9 @@ export function C4_3(props) {
             name="C4_3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_3_1"
-            checked={formik.values.C4_3.includes("C4_3_1")}
-            error={formik.errors.C4_3}
+            value="C4.3_1"
+            checked={formik.values.C4_3.includes("C4.3_1")}
+            //error={formik.errors.C4_3}
           />
           <Form.Field
             label="Venta anticipada de facturas (facturing)"
@@ -78,9 +86,9 @@ export function C4_3(props) {
             name="C4_3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_3_2"
-            checked={formik.values.C4_3.includes("C4_3_2")}
-            error={formik.errors.C4_3}
+            value="C4.3_2"
+            checked={formik.values.C4_3.includes("C4.3_2")}
+            //error={formik.errors.C4_3}
           />
           <Form.Field
             label="Compensación con otros negocios"
@@ -89,9 +97,9 @@ export function C4_3(props) {
             name="C4_3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_3_3"
-            checked={formik.values.C4_3.includes("C4_3_3")}
-            error={formik.errors.C4_3}
+            value="C4.3_3"
+            checked={formik.values.C4_3.includes("C4.3_3")}
+            //error={formik.errors.C4_3}
           />
           <Form.Field
             label="Otro"
@@ -100,9 +108,9 @@ export function C4_3(props) {
             name="C4_3"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_3_4"
-            checked={formik.values.C4_3.includes("C4_3_4")}
-            error={formik.errors.C4_3}
+            value="C4.3_4"
+            checked={formik.values.C4_3.includes("C4.3_4")}
+            //error={formik.errors.C4_3}
           />
         </Form.Group>
 

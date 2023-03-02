@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C4_4.form";
@@ -59,6 +59,14 @@ export function C4_4(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.C4_4 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Préstamo bancario"
@@ -67,9 +75,9 @@ export function C4_4(props) {
             name="C4_4"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_4_1"
-            checked={formik.values.C4_4.includes("C4_4_1")}
-            error={formik.errors.C4_4}
+            value="C4.4_1"
+            checked={formik.values.C4_4.includes("C4.4_1")}
+            //error={formik.errors.C4_4}
           />
           <Form.Field
             label="Préstamo no bancario/prestamistas"
@@ -78,9 +86,9 @@ export function C4_4(props) {
             name="C4_4"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_4_2"
-            checked={formik.values.C4_4.includes("C4_4_2")}
-            error={formik.errors.C4_4}
+            value="C4.4_2"
+            checked={formik.values.C4_4.includes("C4.4_2")}
+            //error={formik.errors.C4_4}
           />
           <Form.Field
             label="Préstamo familiar"
@@ -89,9 +97,9 @@ export function C4_4(props) {
             name="C4_4"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_4_3"
-            checked={formik.values.C4_4.includes("C4_4_3")}
-            error={formik.errors.C4_4}
+            value="C4.4_3"
+            checked={formik.values.C4_4.includes("C4.4_3")}
+            //error={formik.errors.C4_4}
           />
           <Form.Field
             label="Ingresos provenientes de otros negocios"
@@ -100,9 +108,9 @@ export function C4_4(props) {
             name="C4_4"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_4_4"
-            checked={formik.values.C4_4.includes("C4_4_4")}
-            error={formik.errors.C4_4}
+            value="C4.4_4"
+            checked={formik.values.C4_4.includes("C4.4_4")}
+            //error={formik.errors.C4_4}
           />
           <Form.Field
             label="Otro"
@@ -111,9 +119,9 @@ export function C4_4(props) {
             name="C4_4"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C4_4_5"
-            checked={formik.values.C4_4.includes("C4_4_5")}
-            error={formik.errors.C4_4}
+            value="C4.4_5"
+            checked={formik.values.C4_4.includes("C4.4_5")}
+            //error={formik.errors.C4_4}
           />
         </Form.Group>
 

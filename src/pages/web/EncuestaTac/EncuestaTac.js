@@ -40,13 +40,13 @@ export function EncuestaTac() {
 
   useEffect(() => {
     (async () => {
-      const { folio, qID, iOperUser } = criteria;
+      const { folio, qID } = criteria;
       try {
         console.warn("EncuestaTac criteria", criteria);
 
         setqData(null);
 
-        if (iOperUser === 2) {
+        if (qID === "END") {
           navigate("/tacEnd");
         } else {
           const response = await tacController.getQuestions(criteria);

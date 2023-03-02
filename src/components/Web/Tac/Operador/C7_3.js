@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C7_3.form";
@@ -60,6 +60,14 @@ export function C7_3(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.C7_3 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Desconocimiento de las tecnologías aplicables"
@@ -70,7 +78,7 @@ export function C7_3(props) {
             onChange={formik.handleChange}
             value="C7.3_1"
             checked={formik.values.C7_3.includes("C7.3_1")}
-            error={formik.errors.C7_3}
+            //error={formik.errors.C7_3}
           />
           <Form.Field
             label="Falta de financiación"
@@ -81,7 +89,7 @@ export function C7_3(props) {
             onChange={formik.handleChange}
             value="C7.3_2"
             checked={formik.values.C7_3.includes("C7.3_2")}
-            error={formik.errors.C7_3}
+            //error={formik.errors.C7_3}
           />
           <Form.Field
             label="Falta de personal entrenado"
@@ -92,7 +100,7 @@ export function C7_3(props) {
             onChange={formik.handleChange}
             value="C7.3_3"
             checked={formik.values.C7_3.includes("C7.3_3")}
-            error={formik.errors.C7_3}
+            //error={formik.errors.C7_3}
           />
           <Form.Field
             label="Otro"
@@ -103,7 +111,7 @@ export function C7_3(props) {
             onChange={formik.handleChange}
             value="C7.3_4"
             checked={formik.values.C7_3.includes("C7.3_4")}
-            error={formik.errors.C7_3}
+            //error={formik.errors.C7_3}
           />
           <Form.Field
             label="Ninguno"
@@ -114,7 +122,7 @@ export function C7_3(props) {
             onChange={formik.handleChange}
             value="C7.3_5"
             checked={formik.values.C7_3.includes("C7.3_5")}
-            error={formik.errors.C7_3}
+            //error={formik.errors.C7_3}
           />
         </Form.Group>
 

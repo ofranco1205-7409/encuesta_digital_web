@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
-import { Divider, Form, Header, Loader, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Form,
+  Header,
+  Icon,
+  Loader,
+  Segment,
+} from "semantic-ui-react";
 import { size, map } from "lodash";
 import { useFormik, Field } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./D.form";
 import { NavigationButtons } from "../NavigationButtons";
+import { RetoDItem } from "./RetoDItem";
 import "./D.scss";
 //import { BasicModal } from "../../../Shared";
 //import { RetoForm } from "./RetoForm";
 import { TacNavigation } from "../TacNavigation";
+import { BasicModal } from "../../../Shared";
 
 const tacController = new Tac();
 const tn = new TacNavigation();
@@ -18,42 +28,99 @@ const initialRetos = [
   {
     title: "{1} Mercado de servicio y precios",
     order: 1,
+    detailArr: [
+      "Demanda irregular",
+      "Baja demanda",
+      "No hay carga de retorno",
+      "Bajo precio del servicio de transporte",
+      "Excesivo número de competidores",
+      "Usuarios demasiado exigentes",
+    ],
+    detail: [],
   },
   {
     title: "{2} Altos costos operativos",
     order: 2,
+    detailArr: [
+      "Precio de combustibles",
+      "Costos de personal",
+      "Averías",
+      "Accidentes",
+      "Gastos en seguridad",
+    ],
+    detail: [],
   },
   {
     title: "{3} Modelo de gestión empresarial deficiente",
     order: 3,
+    detailArr: [
+      "Ausencia de un esquema contable formal",
+      "Servicios sin contrato",
+      "Comercialización indirecta a través de sindicato u empresas formales",
+      "Dificultades para cobrar a los usuarios",
+      "Baja digitalización/desconexión con sistemas de compras de los usuarios",
+      "Dificultad para adaptar la flota a energías verdes",
+    ],
+    detail: [],
   },
   {
     title: "{4} Dificultades operacionales",
     order: 4,
+    detailArr: [
+      "Tiempos de carga y descarga ineficientes",
+      "Falta de áreas de servicios y pernocta segura",
+      "Baja utilización de capacidad de carga",
+      "Flota inadecuada a la demanda",
+      "Restricciones de acceso a las ciudades/desvíos",
+    ],
+    detail: [],
   },
   {
     title: "{5} Modelo de gestión de personal",
     order: 5,
+    detailArr: [
+      "Falta de conductores",
+      "Necesidad de incorporar mujeres a las operaciones",
+      "Falta de conocimientos/capacitación",
+      "Falta de cursos de capacitación",
+    ],
+    detail: [],
   },
   {
     title: "{6} Dificultades de financiación",
     order: 6,
+    detailArr: ["Financiación de la flota", "Financiación de las operaciones"],
+    detail: [],
   },
   {
     title: "{7} Problemas con el Sector Público",
     order: 7,
+    detailArr: [
+      "Excesiva cantidad de regulaciones y fiscalización",
+      "Pago de tasas e impuestos elevados",
+      "Prácticas corruptas",
+      "Desinterés de la Administración Pública por el sector",
+      "Exigencia de certificaciones",
+    ],
+    detail: [],
   },
   {
     title: "{8} Bajo prestigio profesional del TAC entre la población",
     order: 8,
+    detailArr: [],
+    detail: [],
   },
   {
     title: "{9} Riesgos de seguridad en el recorrido",
     order: 9,
+    detailArr: [],
+    detail: [],
   },
   {
     title: "{10} Otros (especifique cuáles)",
     order: 10,
+    detailArr: [],
+    detail: [],
   },
 ];
 
@@ -197,7 +264,12 @@ export function D(props) {
                               draggableProvided.draggableProps.style
                             )}
                           >
-                            <strong>{reto.order + ".- "}</strong> {reto.title}
+                            <RetoDItem
+                              key={reto.order}
+                              reto={reto}
+                              //onReload={onReload}
+                              qData={qData}
+                            />
                           </li>
                         )}
                       </Draggable>

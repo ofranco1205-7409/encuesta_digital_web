@@ -75,12 +75,12 @@ export function C4_2(props) {
             label="Dato no disponible"
             control="input"
             type="checkbox"
-            name="C4_2"
+            name="no_disponible"
             //id="qRes2"
             onChange={formik.handleChange}
             value={false}
-            checked={formik.values.C4_2}
-            error={formik.errors.C4_2}
+            checked={formik.values.no_disponible}
+            error={formik.errors.no_disponible}
           />
         </Form.Group>
 

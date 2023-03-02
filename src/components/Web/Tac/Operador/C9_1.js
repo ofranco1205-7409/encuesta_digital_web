@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C9_1.form";
@@ -59,6 +59,14 @@ export function C9_1(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.C9_1 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Consumo de servicios (agua, energía, gas, basura, etc)"
@@ -69,7 +77,7 @@ export function C9_1(props) {
             onChange={formik.handleChange}
             value="C9.1_1"
             checked={formik.values.C9_1.includes("C9.1_1")}
-            error={formik.errors.C9_1}
+            //error={formik.errors.C9_1}
           />
           <Form.Field
             label="Manejo de residuos (desechos sólidos, líquidos, consumo de papel, productos tóxicos, etc.)"
@@ -80,7 +88,7 @@ export function C9_1(props) {
             onChange={formik.handleChange}
             value="C9.1_2"
             checked={formik.values.C9_1.includes("C9.1_2")}
-            error={formik.errors.C9_1}
+            //error={formik.errors.C9_1}
           />
           <Form.Field
             label="Mediciones asociadas a la huella de carbono (consumo de combustibles, CO2, gases de efecto invernadero, etc.)"
@@ -91,7 +99,7 @@ export function C9_1(props) {
             onChange={formik.handleChange}
             value="C9.1_3"
             checked={formik.values.C9_1.includes("C9.1_3")}
-            error={formik.errors.C9_1}
+            //error={formik.errors.C9_1}
           />
           <Form.Field
             label="Generación periódica de informes de cumplimiento ambiental (ICA, etc.)"
@@ -102,7 +110,7 @@ export function C9_1(props) {
             onChange={formik.handleChange}
             value="C9.1_4"
             checked={formik.values.C9_1.includes("C9.1_4")}
-            error={formik.errors.C9_1}
+            //error={formik.errors.C9_1}
           />
           <Form.Field
             label="No realiza ningún tipo de medición"
@@ -113,7 +121,7 @@ export function C9_1(props) {
             onChange={formik.handleChange}
             value="C9.1_5"
             checked={formik.values.C9_1.includes("C9.1_5")}
-            error={formik.errors.C9_1}
+            //error={formik.errors.C9_1}
           />
         </Form.Group>
 

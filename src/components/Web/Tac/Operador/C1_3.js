@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message} from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_3.form";
@@ -62,6 +62,14 @@ export function C1_3(props) {
             Marque todas las opciones que apliquen
           </Header.Subheader>
         </Header>
+        {formik.errors.C1_3 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Comunicación verbal o escrita"
@@ -72,7 +80,7 @@ export function C1_3(props) {
             onChange={formik.handleChange}
             value="C1.3_1"
             checked={formik.values.C1_3.includes("C1.3_1")}
-            error={formik.errors.C1_3}
+            //error={formik.errors.C1_3}
           />
           <Form.Field
             label="Por teléfono"
@@ -83,7 +91,7 @@ export function C1_3(props) {
             onChange={formik.handleChange}
             value="C1.3_2"
             checked={formik.values.C1_3.includes("C1.3_2")}
-            error={formik.errors.C1_3}
+            //error={formik.errors.C1_3}
           />
           <Form.Field
             label="Por email"
@@ -94,7 +102,7 @@ export function C1_3(props) {
             onChange={formik.handleChange}
             value="C1.3_3"
             checked={formik.values.C1_3.includes("C1.3_3")}
-            error={formik.errors.C1_3}
+            //error={formik.errors.C1_3}
           />
           <Form.Field
             label="EDI/conexión a sistema de gestión del cliente"
@@ -105,7 +113,7 @@ export function C1_3(props) {
             onChange={formik.handleChange}
             value="C1.3_4"
             checked={formik.values.C1_3.includes("C1.3_4")}
-            error={formik.errors.C1_3}
+            //error={formik.errors.C1_3}
           />
           <Form.Field
             label="Otro (especifique)"
@@ -116,7 +124,7 @@ export function C1_3(props) {
             onChange={formik.handleChange}
             value="C1.3_5"
             checked={formik.values.C1_3.includes("C1.3_5")}
-            error={formik.errors.C1_3}
+            //error={formik.errors.C1_3}
           />
 
           {formik.values.C1_3.includes("C1.3_5") ? (

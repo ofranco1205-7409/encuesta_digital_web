@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C7_2.form";
@@ -59,6 +59,14 @@ export function C7_2(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.C7_2 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Código de barras/RFID"
@@ -69,7 +77,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_1"
             checked={formik.values.C7_2.includes("C7.2_1")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
           <Form.Field
             label="Intercambio electrónico de datos (EDI)"
@@ -80,7 +88,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_2"
             checked={formik.values.C7_2.includes("C7.2_2")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
           <Form.Field
             label="Radiofrecuencia"
@@ -91,7 +99,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_3"
             checked={formik.values.C7_2.includes("C7.2_3")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
           <Form.Field
             label="Sistema de Gestión Integrada (ERP)"
@@ -102,7 +110,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_4"
             checked={formik.values.C7_2.includes("C7.2_4")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
           <Form.Field
             label="Sistema de Manejo de Almacenes (WMS)"
@@ -113,7 +121,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_5"
             checked={formik.values.C7_2.includes("C7.2_5")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
 
           <Form.Field
@@ -125,7 +133,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_6"
             checked={formik.values.C7_2.includes("C7.2_6")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
 
           <Form.Field
@@ -137,7 +145,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_7"
             checked={formik.values.C7_2.includes("C7.2_7")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
 
           <Form.Field
@@ -149,7 +157,7 @@ export function C7_2(props) {
             onChange={formik.handleChange}
             value="C7.2_8"
             checked={formik.values.C7_2.includes("C7.2_8")}
-            error={formik.errors.C7_2}
+            //error={formik.errors.C7_2}
           />
         </Form.Group>
 

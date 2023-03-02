@@ -95,26 +95,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_1A"
+                    name="A1"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_1A}
-                    error={formik.errors.C4_1_1A}
+                    value={formik.values.A1}
+                    error={formik.errors.A1}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_1B"
+                    name="B1"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_1B}
-                    error={formik.errors.C4_1_1B}
+                    value={formik.values.B1}
+                    error={formik.errors.B1}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -124,26 +124,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_2A"
+                    name="A2"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_2A}
-                    error={formik.errors.C4_1_2A}
+                    value={formik.values.A2}
+                    error={formik.errors.A2}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_2B"
+                    name="B2"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_2B}
-                    error={formik.errors.C4_1_2B}
+                    value={formik.values.B2}
+                    error={formik.errors.B2}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -153,26 +153,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_3A"
+                    name="A3"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_3A}
-                    error={formik.errors.C4_1_3A}
+                    value={formik.values.A3}
+                    error={formik.errors.A3}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_3B"
+                    name="B3"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_3B}
-                    error={formik.errors.C4_1_3B}
+                    value={formik.values.B3}
+                    error={formik.errors.B3}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -182,26 +182,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_4A"
+                    name="A4"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_4A}
-                    error={formik.errors.C4_1_4A}
+                    value={formik.values.A4}
+                    error={formik.errors.A4}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_4B"
+                    name="B4"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_4B}
-                    error={formik.errors.C4_1_4B}
+                    value={formik.values.B4}
+                    error={formik.errors.B4}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -211,26 +211,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_5A"
+                    name="A5"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_5A}
-                    error={formik.errors.C4_1_5A}
+                    value={formik.values.A5}
+                    error={formik.errors.A5}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_5B"
+                    name="B5"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_5B}
-                    error={formik.errors.C4_1_5B}
+                    value={formik.values.B5}
+                    error={formik.errors.B5}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -240,26 +240,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_6A"
+                    name="A6"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_6A}
-                    error={formik.errors.C4_1_6A}
+                    value={formik.values.A6}
+                    error={formik.errors.A6}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_6B"
+                    name="B6"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_6B}
-                    error={formik.errors.C4_1_6B}
+                    value={formik.values.B6}
+                    error={formik.errors.B6}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -269,26 +269,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_7A"
+                    name="A7"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_7A}
-                    error={formik.errors.C4_1_7A}
+                    value={formik.values.A7}
+                    error={formik.errors.A7}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_7B"
+                    name="B7"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_7B}
-                    error={formik.errors.C4_1_7B}
+                    value={formik.values.B7}
+                    error={formik.errors.B7}
                   />
                 </Table.Cell>
               </Table.Row>
@@ -298,26 +298,26 @@ export function C4_1(props) {
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_8A"
+                    name="A8"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_8A}
-                    error={formik.errors.C4_1_8A}
+                    value={formik.values.A8}
+                    error={formik.errors.A8}
                   />
                 </Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
                     type="number"
-                    name="C4_1_8B"
+                    name="B8"
                     min={0}
                     placeholder="0"
                     //id="qRes2"
                     onChange={formik.handleChange}
-                    value={formik.values.C4_1_8B}
-                    error={formik.errors.C4_1_8B}
+                    value={formik.values.B8}
+                    error={formik.errors.B8}
                   />
                 </Table.Cell>
               </Table.Row>

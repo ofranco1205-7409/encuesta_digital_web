@@ -75,12 +75,12 @@ export function U11(props) {
             label="Dato no disponible"
             control="input"
             type="checkbox"
-            name="U11"
+            name="no_disponible"
             //id="qRes2"
             onChange={formik.handleChange}
             value={false}
-            checked={formik.values.U11}
-            error={formik.errors.U11}
+            checked={formik.values.no_disponible}
+            error={formik.errors.no_disponible}
           />
         </Form.Group>
 

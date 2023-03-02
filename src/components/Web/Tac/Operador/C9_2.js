@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C9_2.form";
@@ -54,6 +54,14 @@ export function C9_2(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Sí, a corto plazo "
@@ -64,7 +72,7 @@ export function C9_2(props) {
             onChange={formik.handleChange}
             value="C9.2_1"
             checked={formik.values.qRes === "C9.2_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Sí, pero prefiere esperar a tener más información y garantías sobre las nuevas energías"
@@ -75,7 +83,7 @@ export function C9_2(props) {
             onChange={formik.handleChange}
             value="C9.2_2"
             checked={formik.values.qRes === "C9.2_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Sí, pero serán vehículos de segunda mano"
@@ -86,7 +94,7 @@ export function C9_2(props) {
             onChange={formik.handleChange}
             value="C9.2_3"
             checked={formik.values.qRes === "C9.2_3"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No por ahora"
@@ -97,7 +105,7 @@ export function C9_2(props) {
             onChange={formik.handleChange}
             value="C9.2_4"
             checked={formik.values.qRes === "C9.2_4"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No lo contempla"
@@ -108,7 +116,7 @@ export function C9_2(props) {
             onChange={formik.handleChange}
             value="C9.2_5"
             checked={formik.values.qRes === "C9.2_5"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

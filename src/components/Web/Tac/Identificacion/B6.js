@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B6.form";
@@ -52,6 +52,14 @@ export function B6(props) {
           <Header.Content>B6.- Perfil del entrevistado/a</Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Gerente o funciones directivas"
@@ -65,9 +73,9 @@ export function B6(props) {
               formik.setFieldValue("Res1", data.value);
             }}*/
             onChange={formik.handleChange}
-            value="Gerente_o_funciones_directivas"
-            checked={formik.values.qRes === "Gerente_o_funciones_directivas"}
-            error={formik.errors.qRes}
+            value="B6_1"
+            checked={formik.values.qRes === "B6_1"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Funciones de coordinacion/analista"
@@ -76,11 +84,9 @@ export function B6(props) {
             name="qRes"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="Funciones_de_coordinacion/analista"
-            checked={
-              formik.values.qRes === "Funciones_de_coordinacion/analista"
-            }
-            error={formik.errors.qRes}
+            value="B6_2"
+            checked={formik.values.qRes === "B6_2"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Funciones_operativas/técnicas"
@@ -89,9 +95,9 @@ export function B6(props) {
             name="qRes"
             //id="qRes3"
             onChange={formik.handleChange}
-            value="Funciones_operativas/tecnicas"
-            checked={formik.values.qRes === "Funciones_operativas/tecnicas"}
-            error={formik.errors.qRes}
+            value="B6_3"
+            checked={formik.values.qRes === "B6_3"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Otras funciones"
@@ -100,9 +106,9 @@ export function B6(props) {
             name="qRes"
             //id="qRes4"
             onChange={formik.handleChange}
-            value="Otras_funciones"
-            checked={formik.values.qRes === "Otras_funciones"}
-            error={formik.errors.qRes}
+            value="B6_4"
+            checked={formik.values.qRes === "B6_4"}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

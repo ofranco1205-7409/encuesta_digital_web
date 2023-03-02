@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B2.form";
@@ -76,6 +76,14 @@ export function B2(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="MiPYMEc(< 10 empleados)"
@@ -84,9 +92,9 @@ export function B2(props) {
             name="qRes"
             //id="qRes1
             onChange={formik.handleChange}
-            value="< 10"
-            checked={formik.values.qRes === "< 10"}
-            error={formik.errors.qRes}
+            value="B2_1"
+            checked={formik.values.qRes === "B2_1"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="PYME (11-50 empleados)"
@@ -95,9 +103,9 @@ export function B2(props) {
             name="qRes"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="11-50"
-            checked={formik.values.qRes === "11-50"}
-            error={formik.errors.qRes}
+            value="B2_2"
+            checked={formik.values.qRes === "B2_2"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Mediana empresa (51-150 empleados)"
@@ -106,9 +114,9 @@ export function B2(props) {
             name="qRes"
             //id="qRes3"
             onChange={formik.handleChange}
-            value="51-150"
-            checked={formik.values.qRes === "51-150"}
-            error={formik.errors.qRes}
+            value="B2_3"
+            checked={formik.values.qRes === "B2_3"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Gran empresa (> 150 empleados)"
@@ -117,9 +125,9 @@ export function B2(props) {
             name="qRes"
             //id="qRes4"
             onChange={formik.handleChange}
-            value="> 150"
-            checked={formik.values.qRes === "> 150"}
-            error={formik.errors.qRes}
+            value="B2_4"
+            checked={formik.values.qRes === "B2_4"}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
 

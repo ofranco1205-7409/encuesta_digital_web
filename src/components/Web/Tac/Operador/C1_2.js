@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header,Message  } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_2.form";
@@ -57,6 +57,14 @@ export function C1_2(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.C1_2 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="A través de contratos formales"
@@ -69,7 +77,7 @@ export function C1_2(props) {
             checked={formik.values.C1_2.includes(
               "A traves de contratos formales"
             )}
-            error={formik.errors.qRes}
+            //error={formik.errors.C1_2}
           />
           <Form.Field
             label="Presta servicios sin contrato"
@@ -82,7 +90,7 @@ export function C1_2(props) {
             checked={formik.values.C1_2.includes(
               "Presta servicios sin contrato"
             )}
-            error={formik.errors.qRes}
+            //error={formik.errors.C1_2}
           />
           <Form.Field
             label="Acuerdos de servicio por temporada"
@@ -95,7 +103,7 @@ export function C1_2(props) {
             checked={formik.values.C1_2.includes(
               "Acuerdos de servicio por temporada"
             )}
-            error={formik.errors.qRes}
+            //error={formik.errors.C1_2}
           />
           <Form.Field
             label="Servicios puntuales, a demanda"
@@ -108,7 +116,7 @@ export function C1_2(props) {
             checked={formik.values.C1_2.includes(
               "Servicios puntuales, a demanda"
             )}
-            error={formik.errors.qRes}
+            //error={formik.errors.C1_2}
           />
         </Form.Group>
 

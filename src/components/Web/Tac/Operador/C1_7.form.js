@@ -3,13 +3,13 @@ import * as Yup from "yup";
 export function initialValues(data) {
   console.log("data.qRes", data.qRes);
   return {
-    organizacion: data?.qRes?.organizacion || "",
-    otra_organizacion: data?.qRes?.otra_organizacion || "",
+    C1_7: data?.qRes?.C1_7 || "",
+    otro: data?.qRes?.otro || "",
   };
 }
 
 export function validationSchema() {
   return Yup.object({
-    //qRes: Yup.string().required("Seleccione una opcion"),
+    C1_7: Yup.string().required("Seleccione una opcion"),
   });
 }

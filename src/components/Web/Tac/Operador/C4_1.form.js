@@ -21,22 +21,22 @@ export function initialValues(data) {
   }; */
   //console.log("initialValues", data.qRes);
   return {
-    C4_1_1A: data?.qRes?.C4_1_1A || "",
-    C4_1_1B: data?.qRes?.C4_1_1B || "",
-    C4_1_2A: data?.qRes?.C4_1_2A || "",
-    C4_1_2B: data?.qRes?.C4_1_2B || "",
-    C4_1_3A: data?.qRes?.C4_1_3A || "",
-    C4_1_3B: data?.qRes?.C4_1_3B || "",
-    C4_1_4A: data?.qRes?.C4_1_4A || "",
-    C4_1_4B: data?.qRes?.C4_1_4B || "",
-    C4_1_5A: data?.qRes?.C4_1_5A || "",
-    C4_1_5B: data?.qRes?.C4_1_5B || "",
-    C4_1_6A: data?.qRes?.C4_1_6A || "",
-    C4_1_6B: data?.qRes?.C4_1_6B || "",
-    C4_1_7A: data?.qRes?.C4_1_7A || "",
-    C4_1_7B: data?.qRes?.C4_1_7B || "",
-    C4_1_8A: data?.qRes?.C4_1_8A || "",
-    C4_1_8B: data?.qRes?.C4_1_8B || "",
+    A1: data?.qRes?.A1 || "",
+    B1: data?.qRes?.B1 || "",
+    A2: data?.qRes?.A2 || "",
+    B2: data?.qRes?.B2 || "",
+    A3: data?.qRes?.A3 || "",
+    B3: data?.qRes?.B3 || "",
+    A4: data?.qRes?.A4 || "",
+    B4: data?.qRes?.B4 || "",
+    A5: data?.qRes?.A5 || "",
+    B5: data?.qRes?.B5 || "",
+    A6: data?.qRes?.A6 || "",
+    B6: data?.qRes?.B6 || "",
+    A7: data?.qRes?.A7 || "",
+    B7: data?.qRes?.B7 || "",
+    A8: data?.qRes?.A8 || "",
+    B8: data?.qRes?.B8 || "",
   };
 }
 

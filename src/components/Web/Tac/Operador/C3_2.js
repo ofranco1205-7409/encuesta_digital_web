@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C3_2.form";
@@ -55,6 +55,14 @@ export function C3_2(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Sí, existen barreras y situaciones de no aceptación"
@@ -65,7 +73,7 @@ export function C3_2(props) {
             onChange={formik.handleChange}
             value="C3.2_1"
             checked={formik.values.qRes === "C3.2_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No existen barreras, aunque las mujeres no deberían ser conductoras"
@@ -76,7 +84,7 @@ export function C3_2(props) {
             onChange={formik.handleChange}
             value="C3.2_2"
             checked={formik.values.qRes === "C3.2_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No existe ningún tipo de barreras"
@@ -87,7 +95,7 @@ export function C3_2(props) {
             onChange={formik.handleChange}
             value="C3.2_3"
             checked={formik.values.qRes === "C3.2_3"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

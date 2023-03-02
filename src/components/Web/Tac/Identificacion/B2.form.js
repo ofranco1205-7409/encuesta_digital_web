@@ -9,6 +9,6 @@ export function initialValues(data) {
 
 export function validationSchema() {
   return Yup.object({
-    //qRes: Yup.string().required("Seleccione una opcion"),
+    qRes: Yup.string().required("Seleccione una opcion"),
   });
 }

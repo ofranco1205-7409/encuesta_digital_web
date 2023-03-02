@@ -61,7 +61,7 @@ export function B7(props) {
         </Header>
         <Form.Group grouped>
           <Form.Field
-            label="País"
+            label="*País"
             control="input"
             type="text"
             name="pais"
@@ -71,7 +71,7 @@ export function B7(props) {
               console.log(data.value);
               formik.setFieldValue("Res1", data.value);
             }}*/
-            placeholder="Pais"
+            placeholder="Pais [requerido]"
             onChange={formik.handleChange}
             value={formik.values.pais}
             //checked={formik.values.qRes === "0_5"}

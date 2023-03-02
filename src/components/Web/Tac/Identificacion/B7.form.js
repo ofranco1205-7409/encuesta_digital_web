@@ -11,6 +11,6 @@ export function initialValues(data) {
 
 export function validationSchema() {
   return Yup.object({
-    //qRes: Yup.string().required("Seleccione una opcion"),
+    pais: Yup.string().required("Campo requerido"),
   });
 }

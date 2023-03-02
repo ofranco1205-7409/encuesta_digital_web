@@ -171,8 +171,7 @@ export function U6(props) {
                 transportista
               </Header.Content>
               <Header.Subheader>
-                Ordene de más a menos importante (1 a 5) los factores que se
-                presentan
+                Ordene de más a menos importante los factores que se presentan
               </Header.Subheader>
             </Header>
 

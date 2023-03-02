@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_6.form";
@@ -54,6 +54,14 @@ export function C1_6(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="No se cobra"
@@ -69,7 +77,7 @@ export function C1_6(props) {
             onChange={formik.handleChange}
             value="C1.6_1"
             checked={formik.values.qRes === "C1.6_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Cantidad de horas exentas de cobro"
@@ -80,7 +88,7 @@ export function C1_6(props) {
             onChange={formik.handleChange}
             value="C1.6_2"
             checked={formik.values.qRes === "C1.6_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Tarifa aplicada por hora de espera"
@@ -91,7 +99,7 @@ export function C1_6(props) {
             onChange={formik.handleChange}
             value="C1.6_3"
             checked={formik.values.qRes === "C1.6_3"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

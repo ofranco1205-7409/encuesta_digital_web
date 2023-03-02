@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C11_1.form";
@@ -55,6 +55,14 @@ export function C11_1(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Sí, las instituciones son adecuadas y atienden las necesidades del sector TAC"
@@ -65,7 +73,7 @@ export function C11_1(props) {
             onChange={formik.handleChange}
             value="C11.1_1"
             checked={formik.values.qRes === "C11.1_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Sí hay apoyo público, pero las instituciones no son las adecuadas"
@@ -76,7 +84,7 @@ export function C11_1(props) {
             onChange={formik.handleChange}
             value="C11.1_2"
             checked={formik.values.qRes === "C11.1_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Existen las instituciones necesarias, pero no apoyan suficientemente al sector"
@@ -87,7 +95,7 @@ export function C11_1(props) {
             onChange={formik.handleChange}
             value="C11.1_3"
             checked={formik.values.qRes === "C11.1_3"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No hay instituciones dedicadas a los problemas del sector TAC"
@@ -98,7 +106,7 @@ export function C11_1(props) {
             onChange={formik.handleChange}
             value="C11.1_4"
             checked={formik.values.qRes === "C11.1_4"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No. El sector no es una preocupación del Gobierno"
@@ -109,7 +117,7 @@ export function C11_1(props) {
             onChange={formik.handleChange}
             value="C11.1_5"
             checked={formik.values.qRes === "C11.1_5"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

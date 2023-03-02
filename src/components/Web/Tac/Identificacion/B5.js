@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B5.form";
@@ -52,6 +52,14 @@ export function B5(props) {
           <Header.Content>B5.- Cartera de clientes</Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="0-30 clientes"
@@ -65,9 +73,9 @@ export function B5(props) {
               formik.setFieldValue("Res1", data.value);
             }}*/
             onChange={formik.handleChange}
-            value="0_30"
-            checked={formik.values.qRes === "0_30"}
-            error={formik.errors.qRes}
+            value="B5_1"
+            checked={formik.values.qRes === "B5_1"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="31-60 clientes"
@@ -76,9 +84,9 @@ export function B5(props) {
             name="qRes"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="31_60"
-            checked={formik.values.qRes === "31_60"}
-            error={formik.errors.qRes}
+            value="B5_2"
+            checked={formik.values.qRes === "B5_2"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="61-90 clientes"
@@ -87,9 +95,9 @@ export function B5(props) {
             name="qRes"
             //id="qRes3"
             onChange={formik.handleChange}
-            value="61_90"
-            checked={formik.values.qRes === "61_90"}
-            error={formik.errors.qRes}
+            value="B5_3"
+            checked={formik.values.qRes === "B5_3"}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="> 91 clientes"
@@ -98,9 +106,9 @@ export function B5(props) {
             name="qRes"
             //id="qRes4"
             onChange={formik.handleChange}
-            value="> 91"
-            checked={formik.values.qRes === "> 91"}
-            error={formik.errors.qRes}
+            value="B5_4"
+            checked={formik.values.qRes === "B5_4"}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

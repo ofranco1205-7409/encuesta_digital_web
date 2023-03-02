@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header,Message, } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_7.form";
@@ -29,10 +29,10 @@ export function C1_7(props) {
           folio: folio,
           qID: qData.qID,
           qRes: {
-            organizacion: formValue.organizacion,
-            otra_organizacion:
-              formValue.organizacion === "C1.7_4"
-                ? formValue.otra_organizacion
+            C1_7: formValue.C1_7,
+            otro:
+              formValue.C1_7 === "C1.7_4"
+                ? formValue.otro
                 : "",
           },
         };
@@ -61,62 +61,70 @@ export function C1_7(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.C1_7 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Estructura empresarial "
             control="input"
             type="radio"
-            name="organizacion"
+            name="C1_7"
             //id="qRes1
             onChange={formik.handleChange}
             value="C1.7_1"
-            checked={formik.values.organizacion === "C1.7_1"}
-            error={formik.errors.organizacion}
+            checked={formik.values.C1_7 === "C1.7_1"}
+            //error={formik.errors.C1_7}
           />
           <Form.Field
             label="Organización sindical"
             control="input"
             type="radio"
-            name="organizacion"
+            name="C1_7"
             //id="qRes2"
             onChange={formik.handleChange}
             value="C1.7_2"
-            checked={formik.values.organizacion === "C1.7_2"}
-            error={formik.errors.organizacion}
+            checked={formik.values.C1_7 === "C1.7_2"}
+            //error={formik.errors.C1_7}
           />
           <Form.Field
             label="Asociación a empresa transportista formal"
             control="input"
             type="radio"
-            name="organizacion"
+            name="C1_7"
             //id="qRes3"
             onChange={formik.handleChange}
             value="C1.7_3"
-            checked={formik.values.organizacion === "C1.7_3"}
-            error={formik.errors.organizacion}
+            checked={formik.values.C1_7 === "C1.7_3"}
+            //error={formik.errors.C1_7}
           />
           <Form.Field
             label="Otro (especifique)"
             control="input"
             type="radio"
-            name="organizacion"
+            name="C1_7"
             //id="qRes4"
             onChange={formik.handleChange}
             value="C1.7_4"
-            checked={formik.values.organizacion === "C1.7_4"}
-            error={formik.errors.organizacion}
+            checked={formik.values.C1_7 === "C1.7_4"}
+            //error={formik.errors.C1_7}
           />
-          {formik.values.organizacion === "C1.7_4" ? (
+          {formik.values.C1_7 === "C1.7_4" ? (
             <Form.Field
               label=""
               control="input"
               type="text"
-              name="otra_organizacion"
+              name="otro"
               placeholder="Tipo de organización"
               //id="qRes2"
               onChange={formik.handleChange}
-              value={formik.values.otra_organizacion}
-              error={formik.errors.otra_organizacion}
+              value={formik.values.otro}
+              error={formik.errors.otro}
             />
           ) : (
             <p></p>

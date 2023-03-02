@@ -11,6 +11,6 @@ export function initialValues(data) {
 
 export function validationSchema() {
   return Yup.object({
-    //B3: Yup.array().min(1).of(Yup.string().required()).required(),
+    C7_1: Yup.array().min(1,"Seleccione almenos una opción").of(Yup.string().required()).required(),
   });
 }

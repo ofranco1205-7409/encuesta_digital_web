@@ -43,15 +43,17 @@ export function C1_4(props) {
           qRes: { ...formValue },
         };
         console.log(newData);
-        if (qData.qRes) {
-          console.log("Update question");
-          await tacController.updateQuestion(newData);
-        } else {
-          console.log("Insert question");
-          await tacController.createQuestion(newData);
-        }
+        if (percentage > 0 && percentage <= 100) {
+          if (qData.qRes) {
+            console.log("Update question");
+            await tacController.updateQuestion(newData);
+          } else {
+            console.log("Insert question");
+            await tacController.createQuestion(newData);
+          }
 
-        tn.updateQuestion(button, setCriteria);
+          tn.updateQuestion(button, setCriteria);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -383,15 +385,22 @@ export function C1_4(props) {
           />
         </Form.Group>
         <Divider />
-        {percentage > 100 ? (
+        {percentage === 0 ? (
+          <Message
+            negative
+            icon="percent"
+            header="Porcentaje debe ser mayor a cero"
+            content={"Suma actual: " + percentage}
+          />
+        ) : percentage > 100 ? (
           <Message
             negative
             icon="percent"
             header="Porcentaje exedido"
-            content={"Suma actual " + percentage}
+            content={"Suma actual: " + percentage}
           />
         ) : (
-          <Message info icon="percent" header={"Suma actual " + percentage} />
+          <Message info icon="percent" header={"Suma actual: " + percentage} />
         )}
         <p />
         <NavigationButtons

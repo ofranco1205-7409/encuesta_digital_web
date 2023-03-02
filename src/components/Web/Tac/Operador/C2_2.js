@@ -14,25 +14,26 @@ const tn = new TacNavigation();
 
 const initialRetos = [
   {
-    title: "No hay suficientes conductores para atender a la demanda existente",
+    title:
+      "{1} No hay suficientes conductores para atender a la demanda existente",
     order: 1,
   },
   {
-    title: "Los conductores son personas próximas a retirarse",
+    title: "{2} Los conductores son personas próximas a retirarse",
     order: 2,
   },
   {
-    title: "Los jovenes no están interesados en la profesión de conductor",
+    title: "{3} Los jovenes no están interesados en la profesión de conductor",
     order: 3,
   },
   {
     title:
-      "El sueldo o ganancia mensual promedio de un conductor no es atractivo",
+      "{4} El sueldo o ganancia mensual promedio de un conductor no es atractivo",
     order: 4,
   },
   {
     title:
-      "Los conductores no tienen ninguna protección social o pago por jubilación",
+      "{5} Los conductores no tienen ninguna protección social o pago por jubilación",
     order: 5,
   },
 ];

@@ -22,7 +22,7 @@ export function initialValues(data) {
   //console.log("initialValues", data.qRes);
   return {
     km_recorridos: data?.qRes?.km_recorridos || "",
-    C4_2: data?.qRes?.C4_2 || false,
+    no_disponible: data?.qRes?.no_disponible || false,
   };
 }
 

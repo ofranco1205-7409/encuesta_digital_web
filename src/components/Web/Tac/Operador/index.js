@@ -30,3 +30,5 @@ export * from "./C11_2";
 export * from "./C12";
 export * from "./D";
 export * from "./Operador";
+export * from "./RetoDForm";
+export * from "./RetoDItem";

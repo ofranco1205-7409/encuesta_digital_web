@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header,  Message} from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_9.form";
@@ -54,6 +54,14 @@ export function C1_9(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Sí. Simplificaría su utilización"
@@ -63,7 +71,7 @@ export function C1_9(props) {
             onChange={formik.handleChange}
             value="C1.9_1"
             checked={formik.values.qRes === "C1.9_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No lo considera necesario"
@@ -74,7 +82,7 @@ export function C1_9(props) {
             onChange={formik.handleChange}
             value="C1.9_2"
             checked={formik.values.qRes === "C1.9_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Es irrelevante si es digital"
@@ -85,7 +93,7 @@ export function C1_9(props) {
             onChange={formik.handleChange}
             value="C1.9_3"
             checked={formik.values.qRes === "C1.9_3"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

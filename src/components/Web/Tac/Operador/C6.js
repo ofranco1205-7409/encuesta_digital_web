@@ -202,7 +202,7 @@ export function C6(props) {
                               draggableProvided.draggableProps.style
                             )}
                           >
-                            {String(reto.title).startsWith("{9} Otro") ? (
+                            {String(reto.title).startsWith("{99} Otro") ? (
                               <div className="reto-item">
                                 <div className="reto-item__info">
                                   <span className="reto-item__info-title">

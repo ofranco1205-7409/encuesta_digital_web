@@ -1,12 +1,15 @@
 //Local cambiar a http
-const SERVER_IP = "localhost:3977";
+//const SERVER_IP = "localhost:3977";
 
-//Para PRD cambiar a https
+//Ofranco cambiar a https
 //const SERVER_IP = "ofg-app1.herokuapp.com";
 
+//Digitac cambiar a https
+const SERVER_IP = "digitac.herokuapp.com";
+
 export const ENV = {
-  BASE_PATH: `http://${SERVER_IP}`,
-  BASE_API: `http://${SERVER_IP}/api/v1`,
+  BASE_PATH: `https://${SERVER_IP}`,
+  BASE_API: `https://${SERVER_IP}/api/v1`,
   API_ROUTES: {
     REGISTER: "auth/register",
     LOGIN: "auth/login",
