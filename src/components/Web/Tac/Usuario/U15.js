@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./U15.form";
@@ -59,6 +59,14 @@ export function U15(props) {
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.U15 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Especialistas en Cadena de Suministro"
@@ -69,7 +77,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_1"
             checked={formik.values.U15.includes("U15_1")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Especialistas en Comercio Exterior"
@@ -80,7 +88,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_2"
             checked={formik.values.U15.includes("U15_2")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Especialistas en Gestión de Inventarios"
@@ -91,7 +99,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_3"
             checked={formik.values.U15.includes("U15_3")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Especialistas en e-Commerce"
@@ -102,7 +110,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_4"
             checked={formik.values.U15.includes("U15_4")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Especialistas en Transporte"
@@ -113,7 +121,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_5"
             checked={formik.values.U15.includes("U15_5")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Controlador de Tráfico"
@@ -124,7 +132,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_6"
             checked={formik.values.U15.includes("U15_6")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Especialistas en Lean Management"
@@ -135,7 +143,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_7"
             checked={formik.values.U15.includes("U15_7")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Especialistas en Compras"
@@ -146,7 +154,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_8"
             checked={formik.values.U15.includes("U15_8")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
           <Form.Field
             label="Otros"
@@ -157,7 +165,7 @@ export function U15(props) {
             onChange={formik.handleChange}
             value="U15_9"
             checked={formik.values.U15.includes("U15_9")}
-            error={formik.errors.U15}
+            //error={formik.errors.U15}
           />
         </Form.Group>
 

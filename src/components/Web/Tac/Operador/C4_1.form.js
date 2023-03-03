@@ -37,6 +37,8 @@ export function initialValues(data) {
     B7: data?.qRes?.B7 || "",
     A8: data?.qRes?.A8 || "",
     B8: data?.qRes?.B8 || "",
+    A9: data?.qRes?.A9 || "",
+    B9: data?.qRes?.B9 || "",
   };
 }
 

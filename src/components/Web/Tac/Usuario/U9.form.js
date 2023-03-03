@@ -11,6 +11,9 @@ export function initialValues(data) {
 
 export function validationSchema() {
   return Yup.object({
+    //transporte: Yup.number().required("Campo requerido"),
+    //almacenamiento: Yup.number().required("Campo requerido"),
+    //gestion_logistica: Yup.number().required("Campo requerido"),
     //firstName: Yup.string().max(20, "Must be 20 characters or less").required("Required"),
     //combustible: Yup.string().required("Seleccione una opcion"),
   });

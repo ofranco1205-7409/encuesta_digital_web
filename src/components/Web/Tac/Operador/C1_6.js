@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_6.form";
@@ -27,7 +27,13 @@ export function C1_6(props) {
         const newData = {
           folio: folio,
           qID: qData.qID,
-          qRes: formValue.qRes,
+          qRes: {
+            C1_6: formValue.C1_6,
+            horas_exentas:
+              formValue.C1_6 === "C1.6_2" ? formValue.horas_exentas : "",
+            tarifa_hora:
+              formValue.C1_6 === "C1.6_3" ? formValue.tarifa_hora : "",
+          },
         };
         console.log(newData);
         if (qData.qRes || qData.qRes === "") {
@@ -54,7 +60,7 @@ export function C1_6(props) {
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>
-        {formik.errors.qRes ? (
+        {formik.errors.C1_6 ? (
           <Message negative>
             <Message.Header>Error</Message.Header>
             <Message.List items={formik.errors} />
@@ -67,7 +73,7 @@ export function C1_6(props) {
             label="No se cobra"
             control="input"
             type="radio"
-            name="qRes"
+            name="C1_6"
             //id="qRes1
             /*
             onChange={(_, data) => {
@@ -76,31 +82,63 @@ export function C1_6(props) {
             }}*/
             onChange={formik.handleChange}
             value="C1.6_1"
-            checked={formik.values.qRes === "C1.6_1"}
-            //error={formik.errors.qRes}
+            checked={formik.values.C1_6 === "C1.6_1"}
+            //error={formik.errors.C1_6}
           />
           <Form.Field
             label="Cantidad de horas exentas de cobro"
             control="input"
             type="radio"
-            name="qRes"
+            name="C1_6"
             //id="qRes2"
             onChange={formik.handleChange}
             value="C1.6_2"
-            checked={formik.values.qRes === "C1.6_2"}
-            //error={formik.errors.qRes}
+            checked={formik.values.C1_6 === "C1.6_2"}
+            //error={formik.errors.C1_6}
           />
+          {formik.values.C1_6 === "C1.6_2" ? (
+            <Form.Field
+              label=""
+              control="input"
+              type="number"
+              min="1"
+              name="horas_exentas"
+              placeholder="Indicar cantidad de horas gratis"
+              //id="qRes2"
+              onChange={formik.handleChange}
+              value={formik.values.horas_exentas}
+              error={formik.errors.horas_exentas}
+            />
+          ) : (
+            <p></p>
+          )}
           <Form.Field
             label="Tarifa aplicada por hora de espera"
             control="input"
             type="radio"
-            name="qRes"
+            name="C1_6"
             //id="qRes3"
             onChange={formik.handleChange}
             value="C1.6_3"
-            checked={formik.values.qRes === "C1.6_3"}
-            //error={formik.errors.qRes}
+            checked={formik.values.C1_6 === "C1.6_3"}
+            //error={formik.errors.C1_6}
           />
+          {formik.values.C1_6 === "C1.6_3" ? (
+            <Form.Field
+              label=""
+              control="input"
+              type="number"
+              min="1"
+              name="tarifa_hora"
+              placeholder="Indicar tarifa"
+              //id="qRes2"
+              onChange={formik.handleChange}
+              value={formik.values.tarifa_hora}
+              error={formik.errors.tarifa_hora}
+            />
+          ) : (
+            <p></p>
+          )}
         </Form.Group>
         <NavigationButtons
           setButton={setButton}

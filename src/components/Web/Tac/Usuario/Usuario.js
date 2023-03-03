@@ -24,7 +24,6 @@ export function Usuario(props) {
   const { criteria, setCriteria, qData } = props;
   return (
     <>
-      <h3>usuario {criteria.qID}</h3>
       {criteria.qIndex === 0 ? (
         <U1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 1 ? (

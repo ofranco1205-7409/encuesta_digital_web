@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C1_8.form";
@@ -50,7 +50,7 @@ export function C1_8(props) {
       <Form onSubmit={formik.handleSubmit}>
         <Header as="h3" dividing>
           <Header.Content>
-            C1.8.- ¿Considera relevante que el Gobieno proporcione formato de
+            C1.8.- ¿Considera relevante que el Gobierno proporcione un modelo de
             carta de porte?
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>

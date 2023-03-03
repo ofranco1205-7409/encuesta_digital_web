@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./U16.form";
@@ -58,6 +58,14 @@ export function U16(props) {
           </Header.Content>
           <Header.Subheader>Seleccione SI/NO</Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Si"
@@ -68,7 +76,7 @@ export function U16(props) {
             onChange={formik.handleChange}
             value="U16_1"
             checked={formik.values.qRes === "U16_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No"
@@ -79,7 +87,7 @@ export function U16(props) {
             onChange={formik.handleChange}
             value="U16_2"
             checked={formik.values.qRes === "U16_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
 

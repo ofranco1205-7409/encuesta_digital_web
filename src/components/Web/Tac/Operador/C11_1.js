@@ -51,7 +51,7 @@ export function C11_1(props) {
         <Header as="h3" dividing>
           <Header.Content>
             C11.1.- ¿Considera que las instituciones/gobierno responden a las
-            necesidades del sector TAC
+            necesidades del sector Transporte Automotor de Carga (TAC)
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>

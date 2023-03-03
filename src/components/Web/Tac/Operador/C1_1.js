@@ -64,7 +64,7 @@ export function C1_1(props) {
   useEffect(() => {
     let sum = 0;
     Object.entries(formik.values).forEach(([key, value]) => {
-      if (!(key === "otros_costos")) {
+      if (!(key === "otro_detalle")) {
         sum = sum + Number(value);
       }
     });
@@ -128,76 +128,87 @@ export function C1_1(props) {
           <Form.Field>
             <Input
               size="mini"
-              name="almacenista"
+              name="distribucion_nacional"
               labelPosition="right"
               type="number"
               min={0}
               max={100}
               placeholder="00"
               onChange={formik.handleChange}
-              value={formik.values.almacenista}
-              error={formik.errors.almacenista}
+              value={formik.values.distribucion_nacional}
+              error={formik.errors.distribucion_nacional}
             >
               <input />
               <Label>%</Label>
-              <Label basic>Almacenista</Label>
+              <Label basic>Distribución nacional</Label>
             </Input>
           </Form.Field>
           <Form.Field>
             <Input
               size="mini"
-              name="agente_de_carga"
+              name="servicio_centro_acopio"
               labelPosition="right"
               type="number"
               min={0}
               max={100}
               placeholder="00"
               onChange={formik.handleChange}
-              value={formik.values.agente_de_carga}
-              error={formik.errors.agente_de_carga}
+              value={formik.values.servicio_centro_acopio}
+              error={formik.errors.servicio_centro_acopio}
             >
               <input />
               <Label>%</Label>
-              <Label basic>Agente de carga</Label>
+              <Label basic>Servicio a centros de acopio rural</Label>
             </Input>
           </Form.Field>
           <Form.Field>
             <Input
               size="mini"
-              name="agente_de_aduanas"
+              name="distribucion_urbana"
               labelPosition="right"
               type="number"
               min={0}
               max={100}
               placeholder="00"
               onChange={formik.handleChange}
-              value={formik.values.agente_de_aduanas}
-              error={formik.errors.agente_de_aduanas}
+              value={formik.values.distribucion_urbana}
+              error={formik.errors.distribucion_urbana}
             >
               <input />
               <Label>%</Label>
-              <Label basic>Agente de aduanas</Label>
+              <Label basic>Distribución urbana / e-commerce</Label>
             </Input>
           </Form.Field>
 
           <Form.Field>
             <Input
               size="mini"
-              name="agente_naviero_consignatario"
+              name="otros"
               labelPosition="right"
               type="number"
               min={0}
               max={100}
               placeholder="00"
               onChange={formik.handleChange}
-              value={formik.values.agente_naviero_consignatario}
-              error={formik.errors.agente_naviero_consignatario}
+              value={formik.values.otros}
+              error={formik.errors.otros}
             >
               <input />
               <Label>%</Label>
-              <Label basic>Agente naviero, consignatario</Label>
+              <Label basic>Otros (especifique)</Label>
             </Input>
           </Form.Field>
+          <Form.Field
+            label=""
+            control="input"
+            type="text"
+            name="otro_detalle"
+            placeholder=""
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value={formik.values.otro_detalle}
+            error={formik.errors.otro_detalle}
+          />
         </Form.Group>
 
         <Divider />

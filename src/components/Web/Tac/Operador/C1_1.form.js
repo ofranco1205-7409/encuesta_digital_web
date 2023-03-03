@@ -5,10 +5,11 @@ export function initialValues(data) {
   return {
     importaciones: data?.importaciones || "",
     exportaciones: data?.exportaciones || "",
-    almacenista: data?.almacenista || "",
-    agente_de_carga: data?.agente_de_carga || "",
-    agente_de_aduanas: data?.agente_de_aduanas || "",
-    agente_naviero_consignatario: data?.agente_naviero_consignatario || "",
+    distribucion_nacional: data?.distribucion_nacional || "",
+    servicio_centro_acopio: data?.servicio_centro_acopio || "",
+    distribucion_urbana: data?.distribucion_urbana || "",
+    otros: data?.otros || "",
+    otro_detalle: data?.otro_detalle || "",
   };
 }
 

@@ -167,8 +167,8 @@ export function C6(props) {
           <div className="c6__retos">
             <Header as="h3" dividing>
               <Header.Content>
-                C6.- Ordene los siguientes retos claves para el Transporte
-                Automotor de Carga (TAC)
+                C6.- ¿Cuáles considera que son las principales causas de los
+                accidentes?
               </Header.Content>
               <Header.Subheader>
                 Click y sin soltar, arrastre a la que considere su posición

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./U4.form";
@@ -56,6 +56,14 @@ export function U4(props) {
             Escoja la opción que mejor represente lo que hace habitualmente
           </Header.Subheader>
         </Header>
+        {formik.errors.qRes ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Como valor absoluto/total"
@@ -66,7 +74,7 @@ export function U4(props) {
             onChange={formik.handleChange}
             value="U4_1"
             checked={formik.values.qRes === "U4_1"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Como porcentaje sobre las ventas"
@@ -77,7 +85,7 @@ export function U4(props) {
             onChange={formik.handleChange}
             value="U4_2"
             checked={formik.values.qRes === "U4_2"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="En base a actividades (ABC)"
@@ -88,7 +96,7 @@ export function U4(props) {
             onChange={formik.handleChange}
             value="U4_3"
             checked={formik.values.qRes === "U4_3"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="Por unidad de medida"
@@ -99,7 +107,7 @@ export function U4(props) {
             onChange={formik.handleChange}
             value="U4_4"
             checked={formik.values.qRes === "U4_4"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
           <Form.Field
             label="No lo calcula/Desconoce la información"
@@ -110,7 +118,7 @@ export function U4(props) {
             onChange={formik.handleChange}
             value="U4_5"
             checked={formik.values.qRes === "U4_5"}
-            error={formik.errors.qRes}
+            //error={formik.errors.qRes}
           />
         </Form.Group>
         <NavigationButtons

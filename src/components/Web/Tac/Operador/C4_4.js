@@ -113,7 +113,7 @@ export function C4_4(props) {
             //error={formik.errors.C4_4}
           />
           <Form.Field
-            label="Otro"
+            label="Compra al contado, sin financiación"
             control="input"
             type="checkbox"
             name="C4_4"
@@ -121,6 +121,17 @@ export function C4_4(props) {
             onChange={formik.handleChange}
             value="C4.4_5"
             checked={formik.values.C4_4.includes("C4.4_5")}
+            //error={formik.errors.C4_4}
+          />
+          <Form.Field
+            label="Otro"
+            control="input"
+            type="checkbox"
+            name="C4_4"
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value="C4.4_6"
+            checked={formik.values.C4_4.includes("C4.4_6")}
             //error={formik.errors.C4_4}
           />
         </Form.Group>

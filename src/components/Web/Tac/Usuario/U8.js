@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./U8.form";
@@ -62,6 +62,14 @@ export function U8(props) {
             Marque todas las opciones que apliquen
           </Header.Subheader>
         </Header>
+        {formik.errors.U8 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Entregas a tiempo"
@@ -72,7 +80,7 @@ export function U8(props) {
             onChange={formik.handleChange}
             value="U8_1"
             checked={formik.values.U8.includes("U8_1")}
-            error={formik.errors.U8}
+            //error={formik.errors.U8}
           />
           <Form.Field
             label="Pedidos sin daños"
@@ -83,7 +91,7 @@ export function U8(props) {
             onChange={formik.handleChange}
             value="U8_2"
             checked={formik.values.U8.includes("U8_2")}
-            error={formik.errors.U8}
+            //error={formik.errors.U8}
           />
           <Form.Field
             label="Trazabilidad de los pedidos"
@@ -94,7 +102,7 @@ export function U8(props) {
             onChange={formik.handleChange}
             value="U8_3"
             checked={formik.values.U8.includes("U8_3")}
-            error={formik.errors.U8}
+            //error={formik.errors.U8}
           />
           <Form.Field
             label="Facilidad en procesos de logística inversa"
@@ -105,7 +113,7 @@ export function U8(props) {
             onChange={formik.handleChange}
             value="U8_4"
             checked={formik.values.U8.includes("U8_4")}
-            error={formik.errors.U8}
+            //error={formik.errors.U8}
           />
           <Form.Field
             label="Facilidad en procesos de logística inversa"
@@ -116,7 +124,7 @@ export function U8(props) {
             onChange={formik.handleChange}
             value="U8_5"
             checked={formik.values.U8.includes("U8_5")}
-            error={formik.errors.U8}
+            //error={formik.errors.U8}
           />
           <Form.Field
             label="Otros (especifique)"
@@ -127,7 +135,7 @@ export function U8(props) {
             onChange={formik.handleChange}
             value="U8_6"
             checked={formik.values.U8.includes("U8_6")}
-            error={formik.errors.U8}
+            //error={formik.errors.U8}
           />
           {formik.values.U8.includes("U8_6") ? (
             <Form.Field

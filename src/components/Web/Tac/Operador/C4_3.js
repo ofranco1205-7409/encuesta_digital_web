@@ -69,7 +69,7 @@ export function C4_3(props) {
         )}
         <Form.Group grouped>
           <Form.Field
-            label="Línea de crédito bancaria"
+            label="Circulante disponible para operaciones, efectivo"
             control="input"
             type="checkbox"
             name="C4_3"
@@ -80,7 +80,7 @@ export function C4_3(props) {
             //error={formik.errors.C4_3}
           />
           <Form.Field
-            label="Venta anticipada de facturas (facturing)"
+            label="Línea de crédito bancaria"
             control="input"
             type="checkbox"
             name="C4_3"
@@ -91,7 +91,7 @@ export function C4_3(props) {
             //error={formik.errors.C4_3}
           />
           <Form.Field
-            label="Compensación con otros negocios"
+            label="Venta anticipada de facturas (facturing)"
             control="input"
             type="checkbox"
             name="C4_3"
@@ -102,7 +102,7 @@ export function C4_3(props) {
             //error={formik.errors.C4_3}
           />
           <Form.Field
-            label="Otro"
+            label="Compensación con otros negocios"
             control="input"
             type="checkbox"
             name="C4_3"
@@ -110,6 +110,17 @@ export function C4_3(props) {
             onChange={formik.handleChange}
             value="C4.3_4"
             checked={formik.values.C4_3.includes("C4.3_4")}
+            //error={formik.errors.C4_3}
+          />
+          <Form.Field
+            label="Otro"
+            control="input"
+            type="checkbox"
+            name="C4_3"
+            //id="qRes2"
+            onChange={formik.handleChange}
+            value="C4.3_5"
+            checked={formik.values.C4_3.includes("C4.3_5")}
             //error={formik.errors.C4_3}
           />
         </Form.Group>

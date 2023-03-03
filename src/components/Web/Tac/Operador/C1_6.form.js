@@ -3,12 +3,14 @@ import * as Yup from "yup";
 export function initialValues(data) {
   //console.log(data);
   return {
-    qRes: data?.qRes || "",
+    C1_6: data.qRes?.C1_6 || "",
+    horas_exentas: data.qRes?.horas_exentas || "",
+    tarifa_hora: data.qRes?.tarifa_hora || "",
   };
 }
 
 export function validationSchema() {
   return Yup.object({
-    qRes: Yup.string().required("Seleccione una opcion"),
+    C1_6: Yup.string().required("Seleccione una opcion"),
   });
 }

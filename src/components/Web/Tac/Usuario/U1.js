@@ -87,7 +87,7 @@ export function U1(props) {
       <Form onSubmit={formik.handleSubmit}>
         <Header as="h3" dividing>
           <Header.Content>
-            U1. ¿Cuál es su principal ámbito de negocio?
+            U1.- Coloque el % aproximado de cada actividad en su negocio
           </Header.Content>
           <Header.Subheader>
             Coloque el % aproximado de cada actividad en su negocio

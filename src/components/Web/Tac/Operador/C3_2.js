@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Radio, Checkbox, Header,Message } from "semantic-ui-react";
+import { Form, Radio, Checkbox, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./C3_2.form";
@@ -51,7 +51,7 @@ export function C3_2(props) {
         <Header as="h3" dividing>
           <Header.Content>
             C3.2.- ¿Considera que existen barreras a la participación de las
-            mujeres en el Sector TAC?
+            mujeres en el sector Transporte Automotor de Carga?
           </Header.Content>
           <Header.Subheader>Seleccione una opcion.</Header.Subheader>
         </Header>

@@ -5,7 +5,6 @@ export function Introduccion(props) {
   const { criteria, setCriteria, qData } = props;
   return (
     <>
-      <h3>introduccion {criteria.qID}</h3>
       {criteria.qIndex === 0 ? (
         <A1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 1 ? (

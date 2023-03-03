@@ -37,7 +37,6 @@ export function Operador(props) {
   const { criteria, setCriteria, qData } = props;
   return (
     <>
-      <h3>operador {criteria.qID + "-" + criteria.qID.substring(0, 1)}</h3>
       {criteria.qIndex === 0 ? (
         <C1_1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 1 ? (

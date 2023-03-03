@@ -84,13 +84,15 @@ export function C4_1(props) {
                   </Label>
                 </Table.HeaderCell>
                 <Table.HeaderCell collapsing>Cantidad</Table.HeaderCell>
-                <Table.HeaderCell collapsing>Antigüedad</Table.HeaderCell>
+                <Table.HeaderCell collapsing>
+                  Antigüedad (años)
+                </Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
               <Table.Row>
-                <Table.Cell>Cama baja</Table.Cell>
+                <Table.Cell>Cabeza tractora, cabezote, cabezal</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -119,7 +121,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Camión refrigerado</Table.Cell>
+                <Table.Cell>Cama baja</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -148,7 +150,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Furgones o furgonetas</Table.Cell>
+                <Table.Cell>Camión refrigerado</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -177,7 +179,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Lowboy trailer</Table.Cell>
+                <Table.Cell>Furgones o furgonetas</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -206,7 +208,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Portacontenedores/planchas</Table.Cell>
+                <Table.Cell>Lowboy trailer</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -235,7 +237,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Tanques</Table.Cell>
+                <Table.Cell>Portacontenedores/planchas</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -264,7 +266,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Portavehículos/camión nodriza</Table.Cell>
+                <Table.Cell>Tanques</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -293,7 +295,7 @@ export function C4_1(props) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell>Otros</Table.Cell>
+                <Table.Cell>Portavehículos/camión nodriza</Table.Cell>
                 <Table.Cell>
                   <Form.Field
                     control="input"
@@ -318,6 +320,35 @@ export function C4_1(props) {
                     onChange={formik.handleChange}
                     value={formik.values.B8}
                     error={formik.errors.B8}
+                  />
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>Otros</Table.Cell>
+                <Table.Cell>
+                  <Form.Field
+                    control="input"
+                    type="number"
+                    name="A9"
+                    min={0}
+                    placeholder="0"
+                    //id="qRes2"
+                    onChange={formik.handleChange}
+                    value={formik.values.A9}
+                    error={formik.errors.A9}
+                  />
+                </Table.Cell>
+                <Table.Cell>
+                  <Form.Field
+                    control="input"
+                    type="number"
+                    name="B9"
+                    min={0}
+                    placeholder="0"
+                    //id="qRes2"
+                    onChange={formik.handleChange}
+                    value={formik.values.B9}
+                    error={formik.errors.B9}
                   />
                 </Table.Cell>
               </Table.Row>

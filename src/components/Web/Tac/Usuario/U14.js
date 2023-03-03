@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./U14.form";
@@ -53,12 +53,21 @@ export function U14(props) {
       <Form onSubmit={formik.handleSubmit}>
         <Header as="h3" dividing>
           <Header.Content>
-            U14.- Necesidad de especialistas en el sector logístico / TAC
+            U14.- ¿Ha implementado algún tipo de proceso de innovación en
+            logística?
           </Header.Content>
           <Header.Subheader>
             Marque todas las opciones que apliquen.
           </Header.Subheader>
         </Header>
+        {formik.errors.U14 ? (
+          <Message negative>
+            <Message.Header>Error</Message.Header>
+            <Message.List items={formik.errors} />
+          </Message>
+        ) : (
+          <></>
+        )}
         <Form.Group grouped>
           <Form.Field
             label="Eficiencia en la cadena logística"
@@ -69,7 +78,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_1"
             checked={formik.values.U14.includes("U14_1")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
           <Form.Field
             label="Proyectos de sostenibilidad ambiental"
@@ -80,7 +89,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_2"
             checked={formik.values.U14.includes("U14_2")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
           <Form.Field
             label="Reducción de riesgos en la cadena de suministro"
@@ -91,7 +100,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_3"
             checked={formik.values.U14.includes("U14_3")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
           <Form.Field
             label="Desarrollo de prácticas colaborativas"
@@ -102,7 +111,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_4"
             checked={formik.values.U14.includes("U14_4")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
           <Form.Field
             label="Adopción de nuevas tecnologías/digitalización de procesos"
@@ -113,7 +122,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_5"
             checked={formik.values.U14.includes("U14_5")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
           <Form.Field
             label="Otras"
@@ -124,7 +133,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_6"
             checked={formik.values.U14.includes("U14_6")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
           <Form.Field
             label="Ninguno"
@@ -135,7 +144,7 @@ export function U14(props) {
             onChange={formik.handleChange}
             value="U14_7"
             checked={formik.values.U14.includes("U14_7")}
-            error={formik.errors.U14}
+            //error={formik.errors.U14}
           />
         </Form.Group>
 

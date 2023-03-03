@@ -5,7 +5,6 @@ export function Identificacion(props) {
   const { criteria, setCriteria, qData } = props;
   return (
     <>
-      <h3>Identificacion {criteria.qID}</h3>
       {criteria.qIndex === 0 ? (
         <B1 criteria={criteria} setCriteria={setCriteria} qData={qData} />
       ) : criteria.qIndex === 1 ? (
