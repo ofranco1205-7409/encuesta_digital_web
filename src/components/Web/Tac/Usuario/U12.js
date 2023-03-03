@@ -46,6 +46,26 @@ export function U12(props) {
     },
   });
 
+  const handleCheck = (e, id) => {
+    formik.handleChange(e);
+
+    const field_name = "U12";
+    const valuesArr = formik.values.U12;
+    const excluye_option = "U12_10";
+
+    const include = valuesArr.includes(excluye_option);
+
+    if (id === excluye_option) {
+      if (!include) {
+        formik.setFieldValue(field_name, [id]);
+      }
+    } else {
+      if (include) {
+        formik.setFieldValue(field_name, [id]);
+      }
+    }
+  };
+
   console.log(formik.values);
   return (
     <div className="u12">
@@ -73,7 +93,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_1")}
             value="U12_1"
             checked={formik.values.U12.includes("U12_1")}
             //error={formik.errors.U12}
@@ -84,7 +104,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_2")}
             value="U12_2"
             checked={formik.values.U12.includes("U12_2")}
             //error={formik.errors.U12}
@@ -95,7 +115,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_3")}
             value="U12_3"
             checked={formik.values.U12.includes("U12_3")}
             //error={formik.errors.U12}
@@ -106,7 +126,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_4")}
             value="U12_4"
             checked={formik.values.U12.includes("U12_4")}
             //error={formik.errors.U12}
@@ -117,7 +137,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_5")}
             value="U12_5"
             checked={formik.values.U12.includes("U12_5")}
             //error={formik.errors.U12}
@@ -128,7 +148,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_6")}
             value="U12_6"
             checked={formik.values.U12.includes("U12_6")}
             //error={formik.errors.U12}
@@ -139,7 +159,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_7")}
             value="U12_7"
             checked={formik.values.U12.includes("U12_7")}
             //error={formik.errors.U12}
@@ -150,7 +170,7 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_8")}
             value="U12_8"
             checked={formik.values.U12.includes("U12_8")}
             //error={formik.errors.U12}
@@ -161,9 +181,20 @@ export function U12(props) {
             type="checkbox"
             name="U12"
             //id="qRes2"
-            onChange={formik.handleChange}
+            onChange={(e) => handleCheck(e, "U12_9")}
             value="U12_9"
             checked={formik.values.U12.includes("U12_9")}
+            //error={formik.errors.U12}
+          />
+          <Form.Field
+            label="Ninguna"
+            control="input"
+            type="checkbox"
+            name="U12"
+            //id="qRes2"
+            onChange={(e) => handleCheck(e, "U12_10")}
+            value="U12_10"
+            checked={formik.values.U12.includes("U12_10")}
             //error={formik.errors.U12}
           />
         </Form.Group>

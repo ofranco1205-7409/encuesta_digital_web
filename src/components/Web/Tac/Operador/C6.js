@@ -168,7 +168,8 @@ export function C6(props) {
             <Header as="h3" dividing>
               <Header.Content>
                 C6.- ¿Cuáles considera que son las principales causas de los
-                accidentes?
+                accidentes en los que están involucrados vehículos de transporte
+                de carga?
               </Header.Content>
               <Header.Subheader>
                 Click y sin soltar, arrastre a la que considere su posición

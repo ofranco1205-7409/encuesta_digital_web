@@ -28,11 +28,9 @@ export function C1_6(props) {
           folio: folio,
           qID: qData.qID,
           qRes: {
-            C1_6: formValue.C1_6,
-            horas_exentas:
-              formValue.C1_6 === "C1.6_2" ? formValue.horas_exentas : "",
-            tarifa_hora:
-              formValue.C1_6 === "C1.6_3" ? formValue.tarifa_hora : "",
+            no_se_cobra: formValue.no_se_cobra,
+            horas_exentas: formValue.horas_exentas,
+            tarifa_hora: formValue.tarifa_hora,
           },
         };
         console.log(newData);
@@ -58,7 +56,10 @@ export function C1_6(props) {
           <Header.Content>
             C1.6.- ¿Se cobra el tiempo de espera en carga/descarga?
           </Header.Content>
-          <Header.Subheader>Seleccione una opcion.</Header.Subheader>
+          <Header.Subheader>
+            Señale la cantidad de horas de espera gratis y la tarifa que aplica
+            por esperar cuando aplica el cobro
+          </Header.Subheader>
         </Header>
         {formik.errors.C1_6 ? (
           <Message negative>
@@ -72,73 +73,37 @@ export function C1_6(props) {
           <Form.Field
             label="No se cobra"
             control="input"
-            type="radio"
-            name="C1_6"
-            //id="qRes1
-            /*
-            onChange={(_, data) => {
-              console.log(data.value);
-              formik.setFieldValue("Res1", data.value);
-            }}*/
+            type="checkbox"
+            name="no_se_cobra"
             onChange={formik.handleChange}
-            value="C1.6_1"
-            checked={formik.values.C1_6 === "C1.6_1"}
-            //error={formik.errors.C1_6}
+            value={true}
+            checked={formik.values.no_se_cobra}
+            error={formik.errors.no_se_cobra}
           />
           <Form.Field
             label="Cantidad de horas exentas de cobro"
             control="input"
-            type="radio"
-            name="C1_6"
+            type="number"
+            min="1"
+            name="horas_exentas"
+            placeholder="Horas gratis"
             //id="qRes2"
             onChange={formik.handleChange}
-            value="C1.6_2"
-            checked={formik.values.C1_6 === "C1.6_2"}
-            //error={formik.errors.C1_6}
+            value={formik.values.horas_exentas}
+            error={formik.errors.horas_exentas}
           />
-          {formik.values.C1_6 === "C1.6_2" ? (
-            <Form.Field
-              label=""
-              control="input"
-              type="number"
-              min="1"
-              name="horas_exentas"
-              placeholder="Indicar cantidad de horas gratis"
-              //id="qRes2"
-              onChange={formik.handleChange}
-              value={formik.values.horas_exentas}
-              error={formik.errors.horas_exentas}
-            />
-          ) : (
-            <p></p>
-          )}
           <Form.Field
             label="Tarifa aplicada por hora de espera"
             control="input"
-            type="radio"
-            name="C1_6"
-            //id="qRes3"
+            type="number"
+            min="1"
+            name="tarifa_hora"
+            placeholder="Tarifa"
+            //id="qRes2"
             onChange={formik.handleChange}
-            value="C1.6_3"
-            checked={formik.values.C1_6 === "C1.6_3"}
-            //error={formik.errors.C1_6}
+            value={formik.values.tarifa_hora}
+            error={formik.errors.tarifa_hora}
           />
-          {formik.values.C1_6 === "C1.6_3" ? (
-            <Form.Field
-              label=""
-              control="input"
-              type="number"
-              min="1"
-              name="tarifa_hora"
-              placeholder="Indicar tarifa"
-              //id="qRes2"
-              onChange={formik.handleChange}
-              value={formik.values.tarifa_hora}
-              error={formik.errors.tarifa_hora}
-            />
-          ) : (
-            <p></p>
-          )}
         </Form.Group>
         <NavigationButtons
           setButton={setButton}

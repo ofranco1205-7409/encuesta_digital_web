@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Header,Message } from "semantic-ui-react";
+import { Form, Header, Message } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { Tac } from "../../../../api";
 import { initialValues, validationSchema } from "./B3.form";
@@ -65,7 +65,7 @@ export function B3(props) {
         )}
         <Form.Group grouped>
           <Form.Field
-            label="$0-$1,000"
+            label="$0 – $10.000"
             control="input"
             type="checkbox"
             name="B3"
@@ -76,7 +76,7 @@ export function B3(props) {
             //error={formik.errors.B3}
           />
           <Form.Field
-            label="$1,001-$10,000"
+            label="$10.001-$50.000"
             control="input"
             type="checkbox"
             name="B3"
@@ -87,7 +87,7 @@ export function B3(props) {
             //error={formik.errors.B3}
           />
           <Form.Field
-            label="$10,001-$100,000"
+            label="$50.001-$100.000"
             control="input"
             type="checkbox"
             name="B3"
@@ -98,7 +98,7 @@ export function B3(props) {
             //error={formik.errors.B3}
           />
           <Form.Field
-            label="$100,001-$1,000,0000"
+            label="Mayor de $100.000"
             control="input"
             type="checkbox"
             name="B3"
